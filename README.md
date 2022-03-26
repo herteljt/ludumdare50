@@ -1,4 +1,5 @@
-## Ludum Dare 50
+# Ludum Dare 50
+
 This is a game created for Ludum Dare 50 (https://ldjam.com/) April 1-4, 2022
 
 
