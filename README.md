@@ -6,6 +6,7 @@ This is a game created for Ludum Dare 50 (https://ldjam.com/) April 1-4, 2022
 
 
 Game Engine: Solar2d https://solar2d.com/
+Editor: Atom https://atom.io/
 
 
 
