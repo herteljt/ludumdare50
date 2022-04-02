@@ -19,6 +19,9 @@ function love.load()
 -- background
   assets.images.background = love.graphics.newImage("graphics/background.png")
 
+  assets.images.narrator = love.graphics.newImage("graphics/narrator.png")
+  assets.images.fight = love.graphics.newImage("graphics/fight.png")
+
   assets.images.characterBlank = love.graphics.newImage("graphics/characterBlank.png")
 
 -- knight
@@ -37,29 +40,16 @@ function love.load()
 
 
 
-  assets.images.obstacle = love.graphics.newImage("graphics/obstacle_placeholder.png")
-  assets.images.fake_avatar = love.graphics.newImage("graphics/avatar_placeholder.png")
-  assets.images.forward = love.graphics.newImage("graphics/rocket.png")
-  assets.images.left = love.graphics.newImage("graphics/left_turn_placeholder.png")
-  assets.images.right = love.graphics.newImage("graphics/right_turn_placeholder.png")
-  assets.images.blank = love.graphics.newImage("graphics/transparent_placeholder.png")
-  assets.images.z85000 = love.graphics.newImage("graphics/z85000.png")
-  assets.images.biff_enthusiastic = love.graphics.newImage("graphics/biff_enthusiastic.png")
-  assets.images.biff_tired = love.graphics.newImage("graphics/biff_tired.png")
-  assets.images.bored_teenager = love.graphics.newImage("graphics/teenager.png")
-  assets.images.alien_excited = love.graphics.newImage("graphics/alien_excited.png")
-  assets.images.alien_disappointed = love.graphics.newImage("graphics/alien_disappointed.png")
-  assets.images.goal = love.graphics.newImage("graphics/stranded_ship.png")
-  assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
-
   -- fonts
-  --assets.fonts.regular = love.graphics.newFont("fonts/pixeboy.ttf", 28, "none")
-  --assets.fonts.header = love.graphics.newFont("fonts/pixeboy.ttf", 56, "none")
-  --assets.fonts.dialogue = love.graphics.newFont("fonts/pixeboy.ttf", 22, "none")
 
-  assets.fonts.regular = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 28, "none")
-  assets.fonts.header = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 56, "none")
-  assets.fonts.dialogue = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 22, "none")
+--  assets.fonts.regular = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 28, "none")
+--  assets.fonts.header = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 56, "none")
+--  assets.fonts.dialogue = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 22, "none")
+
+  assets.fonts.regular = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 28, "none")
+  assets.fonts.header = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 56, "none")
+  assets.fonts.dialogue = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 22, "none")
+
 
   -- sounds
   assets.music.intro = love.audio.newSource("/sounds/twinklyspace.mp3", "static")
@@ -136,7 +126,7 @@ function love.update(dt)
   if love.keyboard.isDown('p') then
       worldData.state = enums.game_states.SCENARIO1
       print("Scenario1 State")
-      display_dialogue(dialogue.scenario1)
+      display_dialogue(dialogue.scenario1intro)
   end
 
   -- item selection
