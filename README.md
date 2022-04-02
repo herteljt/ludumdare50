@@ -5,14 +5,15 @@ Game Engine: Love2d https://love2d.org/
 Editor: Atom https://atom.io/
 
 Programming
-  Josh (@joshh)
+  @joshh
 
 Art
-Aaron (@graphite)
-Sarah (@)
+@graphite)
+@sarahhhhhh
 
 Writing
-  David (@fromage10x)
-  (@grimpuppet)
+  @fromage10x
+  @grimpuppet
 
 Music
+@leokrechmer

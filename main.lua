@@ -139,6 +139,13 @@ function love.update(dt)
       display_dialogue(dialogue.scenario1)
   end
 
+  -- item selection
+  if love.keyboard.isDown('1') then
+      worldData.state = enums.game_states.SCENARIO1
+      print("Scenario1 State")
+      display_dialogue(dialogue.scenario1)
+  end
+
 
   -- end program
   if love.keyboard.isDown('escape') then
