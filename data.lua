@@ -12,6 +12,7 @@ assets = {
     left = nil,
     right = nil,
     blank = nil,
+    animal = nil,
     z85000 = nil,
     biff_enthusiastic = nil,
     biff_tired = nil,
@@ -59,7 +60,8 @@ worldData = {
   },
   current_dialogue = {
     name = nil,
-    avatar = nil,
+    avatarUpper = nil,
+    avatarLower = nil,
     text = nil,
     time_since_started_printing = 0,
     len_to_print = 0,

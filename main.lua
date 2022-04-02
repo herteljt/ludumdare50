@@ -15,22 +15,24 @@ function love.load()
   worldData.grid.height = 9
   worldData.grid.border = 0
 
---[[
-  -- player
-  assets.player.right = love.graphics.newImage("graphics/player_right.png")
-  assets.player.down = love.graphics.newImage("graphics/player_down.png")
-  assets.player.left = love.graphics.newImage("graphics/player_left.png")
-  assets.player.up = love.graphics.newImage("graphics/player_up.png")
-]]--
 
 -- background
   assets.images.background = love.graphics.newImage("graphics/background.png")
 
+  assets.images.characterBlank = love.graphics.newImage("graphics/characterBlank.png")
+
 -- knight
-  assets.images.knight = love.graphics.newImage("graphics/knight-1.png")
+  assets.images.knightNeutral = love.graphics.newImage("graphics/knightNeutral.png")
+  assets.images.knightHappy = love.graphics.newImage("graphics/knightHappy.png")
+  assets.images.knightScared = love.graphics.newImage("graphics/knightScared.png")
+  assets.images.knightFail = love.graphics.newImage("graphics/knightFail.png")
+  assets.images.knightAnnoyed = love.graphics.newImage("graphics/knightAnnoyed.png")
 
 -- cat
-  assets.images.cat = love.graphics.newImage("graphics/cat.png")
+  assets.images.catNeutral = love.graphics.newImage("graphics/catNeutral.png")
+  assets.images.catHappy = love.graphics.newImage("graphics/catHappy.png")
+  assets.images.catScared = love.graphics.newImage("graphics/catScared.png")
+  assets.images.catAnnoyed = love.graphics.newImage("graphics/catAnnoyed.png")
 
 
 
@@ -51,9 +53,13 @@ function love.load()
   assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
 
   -- fonts
-  assets.fonts.regular = love.graphics.newFont("fonts/pixeboy.ttf", 28, "none")
-  assets.fonts.header = love.graphics.newFont("fonts/pixeboy.ttf", 56, "none")
-  assets.fonts.dialogue = love.graphics.newFont("fonts/pixeboy.ttf", 22, "none")
+  --assets.fonts.regular = love.graphics.newFont("fonts/pixeboy.ttf", 28, "none")
+  --assets.fonts.header = love.graphics.newFont("fonts/pixeboy.ttf", 56, "none")
+  --assets.fonts.dialogue = love.graphics.newFont("fonts/pixeboy.ttf", 22, "none")
+
+  assets.fonts.regular = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 28, "none")
+  assets.fonts.header = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 56, "none")
+  assets.fonts.dialogue = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 22, "none")
 
   -- sounds
   assets.music.intro = love.audio.newSource("/sounds/twinklyspace.mp3", "static")
@@ -66,7 +72,7 @@ function love.load()
   assets.music.state = assets.music.intro
   assets.music.state:setLooping(true)
   assets.music.state:setVolume(.15)
-  assets.music.state:play()
+  --assets.music.state:play()
 
 
   -- Build world
@@ -172,9 +178,9 @@ function love.draw()
 
   local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
   love.graphics.setColor(0.1, 0.1, 0.1, 1)
-  print_normal("z85000", 40, 40)
+--  print_normal("z85000", 40, 40)
   love.graphics.setColor(1, 1, 1, 1)
-  print_normal("z85000", 40, 42)
+--  print_normal("z85000", 40, 42)
 --[[
   if worldData.state == enums.game_states.MAIN_ACTION then
     if commandBar.index <= 5 then
@@ -201,10 +207,12 @@ function love.draw()
 
     -- render aventurer, cat, and text
     if worldData.current_dialogue then
+
       love.graphics.setColor(1, 1, 1, 1)
-      love.graphics.draw(assets.images[worldData.current_dialogue.avatar], 64, 33) --avatar image adventurer
-      love.graphics.draw(assets.images[worldData.current_dialogue.avatar], 800, 600) --avatar image cat
-      love.graphics.setColor(0, 0.8, 0, 1)
+      love.graphics.draw(assets.images[worldData.current_dialogue.avatarUpper], 0, 0) --avatar image knight
+      love.graphics.draw(assets.images[worldData.current_dialogue.avatarLower], 704, 576) --avatar image cat
+      love.graphics.setColor(1, 1, 1, 1)
+--      love.graphics.setColor(0, 0.8, 0, 1)
       --print_name(worldData.current_dialogue.name)
       local substr = string.sub(worldData.current_dialogue.text, 1, worldData.current_dialogue.len_to_print)
       print_dialogue_text(substr)
@@ -259,7 +267,7 @@ function print_name(name)
 end
 
 function print_dialogue_text(text)
-  love.graphics.printf(text, assets.fonts.dialogue, 400, 65, 600)
+  love.graphics.printf(text, assets.fonts.dialogue, 375, 50, 600)
 end
 
 function print_dialogue_continue_caret()
@@ -342,6 +350,7 @@ function love.keypressed( key )
   end
   if key == "backspace" then
     text = "Backspace  -- pressed!"
+    worldData.state = enums.game_states.WIN
   end
   if key == "return" then
     text = "Enter  -- pressed!"
@@ -426,7 +435,8 @@ function advance_dialogue()
 
   worldData.current_dialogue.name = dia.name
   worldData.current_dialogue.text = dia.text
-  worldData.current_dialogue.avatar = dia.avatar
+  worldData.current_dialogue.avatarUpper = dia.avatarUpper
+  worldData.current_dialogue.avatarLower = dia.avatarLower
   worldData.current_dialogue.time_since_started_printing = 0
   worldData.current_dialogue.len_to_print = 0
 

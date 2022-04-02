@@ -2,75 +2,64 @@ dialogue = {}
 
 dialogue.introduction = {
   {
-    name = "Sir Spaciouspants the oft endangered",
-    avatar = "knight",
-    animal = "cat",
+    avatarUpper = "knightNeutral",
+    avatarLower = "catNeutral",
     text = "What a lovely day to walk about picking up random items and then using them in dangerous scenarios!"
   },
   {
-    name = "Z85000",
-    avatar = "z85000",
-    text = "Running diagnostics.......\n.....OK."
+    avatarUpper = "knightNeutral",
+    avatarLower = "catNeutral",
+    text = "With my loyal cat Demos by my side I will be..."
   },
   {
-    name = "Biff Starleap",
-    avatar = "biff_enthusiastic",
-    text = "Thank you, budding Star Hero, for purchasing the brand new Z85000 rescue drone with hyperwave transistor control pod!"
+    avatarUpper = "knightScared",
+    avatarLower = "catNeutral",
+    text = "wait...where did I..."
   },
   {
-    name = "Biff Starleap",
-    avatar = "biff_enthusiastic",
-    text = "Your drone sits even now at the edge of known space, waiting for a distress call and your command to strike out for adventure!"
+    avatarUpper = "catScared",
+    avatarLower = "knightScared",
+    text = "Hiss!"
   },
   {
-    name = "Biff Starleap",
-    avatar = "biff_enthusiastic",
-    text = "Good luck to you! Perhaps I'll be seeing you at the next Space Rangers Meeting!"
+    avatarUpper = "knightScared",
+    avatarLower = "catAnnoyed",
+    text = "Demos!? Where are you Demos?!"
   },
   {
-    name = "Biff Starleap",
-    avatar = "biff_tired",
-    text = "Phew. Ok, ok. I've got three more today, let's get this over with. What's next?"
+    avatarUpper = "catHappy",
+    avatarLower = "knightNeutral",
+    text = "Mrrow!?"
   },
   {
-    name = "Z85000",
-    avatar = "z85000",
-    text = "Loading mission briefing..."
+    avatarUpper = "knightHappy",
+    avatarLower = "catNeutral",
+    text = "Oh! You've slipped into the bag where I keep all the very precious junk I accumulate. Let me just get you..."
   },
   {
-    name = "Bored Teen",
-    avatar = "bored_teenager",
-    text = "Uhh, Thank the moons of Flythyh you are here, oh most noble....?"
+    avatarUpper = "catScared",
+    avatarLower = "knightScared",
+    text = "Hiss!"
   },
   {
-    name = "Bored Teen",
-    avatar = "bored_teenager",
-    text = "Oh, this one's microphone isn't working. OK, uh, most noble Default_Name. A ship is stranded in this sector and needs your help."
+    avatarUpper = "characterBlank",
+    avatarLower = "catNeutral",
+    text = "(Demos swipes at Sir Spaciouspants' hand as it reaches into the bag)"
   },
   {
-    name = "Bored Teen",
-    avatar = "bored_teenager",
-    text = "Uhh, Navigate your drone through the asteroid field until close enough to receive their transmission, then rescue them."
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catNeutral",
+    text = "Blast it, cat! I'm trying to help you."
   },
   {
-    name = "Bored Teen",
-    avatar = "bored_teenager",
-    text = "You are their, uh, only hope."
+    avatarUpper = "catAnnoyed",
+    avatarLower = "knightNeutral",
+    text = "...."
   },
   {
-    name = "Z85000",
-    avatar = "z85000",
-    text = "Pilot your spaceco drone by entering commands into the command buffer (left/right for turns, up for thrust)."
-  },
-  {
-    name = "Z85000",
-    avatar = "z85000",
-    text = "When the buffer is full, press enter to send the commands to your drone to execute."
-  },
-  {
-    name = "Z85000",
-    avatar = "z85000",
-    text = "If you make a mistake, backspace will clear the last command from the buffer."
+    avatarUpper = "knightNeutral",
+    avatarLower = "catNeutral",
+    text = "Fine, stay in ther for all I care. ADVENTURE AWAITS!!"
   },
 }
 
@@ -78,12 +67,12 @@ dialogue.introduction = {
 dialogue.collision = {
   {
     name = "z85000",
-    avatar = "z85000",
+    avatarUpper = "z85000",
     text = "Warning: collision warnings on 15 second delay."
   },
   {
     name = "z85000",
-    avatar = "z85000",
+    avatarUpper = "z85000",
     text = "Collision warning."
   },
 }
@@ -92,22 +81,22 @@ dialogue.collision = {
 dialogue.close_to_goal = {
   {
     name = "z85000",
-    avatar = "z85000",
+    avatarUpper = "z85000",
     text = "Distress call detected. Opening channel."
   },
   {
     name = "Stranded Traveler",
-    avatar = "alien_excited",
+    avatarUpper = "alien_excited",
     text = "Finally! I'm saved! We have passengers, many in their larval phases, and..."
   },
   {
     name = "Stranded Traveler",
-    avatar = "alien_disappointed",
+    avatarUpper = "alien_disappointed",
     text = "...great, a SpaceCo drone."
   },
   {
     name = "Stranded Traveler",
-    avatar = "alien_disappointed",
+    avatarUpper = "alien_disappointed",
     text = "OK, I know how this works, there's fifty spacebucks in it for you if you get us out of here!"
   },
 }
@@ -117,17 +106,17 @@ dialogue.close_to_goal = {
 dialogue.win = {
   {
     name = "z85000",
-    avatar = "z85000",
+    avatarUpper = "z85000",
     text = "Beginning rescue sequence. Tow line attached."
   },
   {
     name = "Stranded Traveler",
-    avatar = "alien_disappointed",
+    avatarUpper = "alien_disappointed",
     text = "Hey, what is going on out there? You better not damage my ship, or by the sages of Yocat I will-"
   },
   {
     name = "Biff Starleap",
-    avatar = "biff_enthusiastic",
+    avatarUpper = "biff_enthusiastic",
     text = "Good work, hero! You've done spaceco and its subsidiaries proud. Now bring those people home!"
   },
 }
