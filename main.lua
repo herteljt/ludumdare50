@@ -85,6 +85,7 @@ function love.load()
 end
 
 
+
 -- runs continuously. logic and game state updates go here
 function love.update(dt)
 
@@ -130,6 +131,15 @@ function love.update(dt)
     keyState.accent.pressed = true
   end
 
+
+  -- trigger scenarios
+  if love.keyboard.isDown('p') then
+      worldData.state = enums.game_states.SCENARIO1
+      print("Scenario1 State")
+      display_dialogue(dialogue.scenario1)
+  end
+
+
   -- end program
   if love.keyboard.isDown('escape') then
     love.event.quit()
@@ -143,7 +153,6 @@ function love.update(dt)
   if not love.keyboard.isDown('space') then
     keyState.space.pressed = false
   end
-
 
   if worldData.state == enums.game_states.DIALOGUE then
     local full_len = string.len(worldData.current_dialogue.text)
@@ -178,7 +187,6 @@ function love.draw()
 
   local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
   love.graphics.setColor(0.1, 0.1, 0.1, 1)
---  print_normal("z85000", 40, 40)
   love.graphics.setColor(1, 1, 1, 1)
 --  print_normal("z85000", 40, 42)
 --[[
@@ -199,6 +207,30 @@ function love.draw()
   -- love.graphics.draw(assets.images.player, 300, 400, player.facing)
 
   if worldData.state == enums.game_states.DIALOGUE then
+    local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
+
+    -- overlay to dim the play grid while dialogue is happening
+    love.graphics.setColor(0, 0, 0, 0.75)
+    love.graphics.rectangle('fill', 0, 64 * 3, 1024, 768)
+
+    -- render aventurer, cat, and text
+    if worldData.current_dialogue then
+
+      love.graphics.setColor(1, 1, 1, 1)
+      love.graphics.draw(assets.images[worldData.current_dialogue.avatarUpper], 0, 0) --avatar image knight
+      love.graphics.draw(assets.images[worldData.current_dialogue.avatarLower], 704, 576) --avatar image cat
+      love.graphics.setColor(1, 1, 1, 1)
+--      love.graphics.setColor(0, 0.8, 0, 1)
+      --print_name(worldData.current_dialogue.name)
+      local substr = string.sub(worldData.current_dialogue.text, 1, worldData.current_dialogue.len_to_print)
+      print_dialogue_text(substr)
+      print_dialogue_continue_caret()
+    end
+
+    love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
+  end
+
+  if worldData.state == enums.game_states.SCENARIO1 then
     local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
 
     -- overlay to dim the play grid while dialogue is happening

@@ -63,6 +63,33 @@ dialogue.introduction = {
   },
 }
 
+dialogue.scenario1 = {
+  {
+    avatarUpper = "characterBlank",
+    avatarLower = "knightNeutral",
+    text = "You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
+  },
+  {
+    avatarUpper = "knightScared",
+    avatarLower = "catNeutral",
+    text = "DEMOS! DEMOS! I need something quick!"
+  },
+  {
+    avatarUpper = "knightScared",
+    avatarLower = "catNeutral",
+    text = "I'm surrounded by cannibal shorthair llamas and while I am not a shorthair llama they seem ready to make an exception!"
+  },
+  {
+    avatarUpper = "knightScared",
+    avatarLower = "catScared",
+    text = "I need something to convince them I taste awful!"
+  },
+  {
+    avatarUpper = "characterBlank",
+    avatarLower = "catAnnoyed",
+    text = "Which item will you give to Sir Spaciouspants?"
+  },
+}
 
 dialogue.collision = {
   {

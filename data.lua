@@ -48,6 +48,10 @@ enums = {
     DEBUG = 3,
     RUNNING_COMMAND_QUEUE = 4,
     WIN = 5,
+    SCENARIO1 = 6,
+    SCENARIO2 = 7,
+    SCENARIO3 = 8,
+
   }
 }
 
@@ -126,6 +130,26 @@ keyState = {
     enabled = true
   },
   four = {
+    pressed = false,
+    enabled = true
+  },
+  five = {
+    pressed = false,
+    enabled = true
+  },
+  six = {
+    pressed = false,
+    enabled = true
+  },
+  seven = {
+    pressed = false,
+    enabled = true
+  },
+  eight = {
+    pressed = false,
+    enabled = true
+  },
+  nine = {
     pressed = false,
     enabled = true
   },
