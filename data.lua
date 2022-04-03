@@ -92,6 +92,14 @@ itemData = {
   choiceSelected = 100,
   choiceStatus = 0, -- 1 correct, 2 neutral, 0 reset, 3 incorrect
 
+  itemZero = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+
   itemOne = {
     image = nil,
     itemShow = 1,
@@ -156,13 +164,6 @@ itemData = {
     choiceNeutral = nil,
   },
   itemTen = {
-    image = nil,
-    itemShow = 1,
-    itemHide = nil,
-    choiceGood = nil,
-    choiceNeutral = nil,
-  },
-  itemEleven = {
     image = nil,
     itemShow = 1,
     itemHide = nil,

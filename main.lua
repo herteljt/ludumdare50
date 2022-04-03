@@ -47,17 +47,17 @@ function love.load()
 
 --items
 -- cat
-  itemData.itemOne.image = love.graphics.newImage("graphics/itemPotato.png")
-  itemData.itemTwo.image= love.graphics.newImage("graphics/itemShark.png")
-  itemData.itemThree.image = love.graphics.newImage("graphics/itemPudding.png")
-  itemData.itemFour.image = love.graphics.newImage("graphics/itemNeedle.png")
-  itemData.itemFive.image = love.graphics.newImage("graphics/itemFish.png")
-  itemData.itemSix.image = love.graphics.newImage("graphics/itemHorseshoe.png")
-  itemData.itemSeven.image = love.graphics.newImage("graphics/itemPerfume.png")
-  itemData.itemEight.image = love.graphics.newImage("graphics/itemBottle.png")
-  itemData.itemNine.image = love.graphics.newImage("graphics/itemRope.png")
-  itemData.itemTen.image = love.graphics.newImage("graphics/itemDracula.png")
-  itemData.itemEleven.image = love.graphics.newImage("graphics/itemKey.png")
+  itemData.itemZero.image = love.graphics.newImage("graphics/itemPotato.png")
+  itemData.itemOne.image= love.graphics.newImage("graphics/itemShark.png")
+  itemData.itemTwo.image = love.graphics.newImage("graphics/itemPudding.png")
+  itemData.itemThree.image = love.graphics.newImage("graphics/itemNeedle.png")
+  itemData.itemFour.image = love.graphics.newImage("graphics/itemFish.png")
+  itemData.itemFive.image = love.graphics.newImage("graphics/itemHorseshoe.png")
+  itemData.itemSix.image = love.graphics.newImage("graphics/itemPerfume.png")
+  itemData.itemSeven.image = love.graphics.newImage("graphics/itemBottle.png")
+  itemData.itemEight.image = love.graphics.newImage("graphics/itemRope.png")
+  itemData.itemNine.image = love.graphics.newImage("graphics/itemDracula.png")
+  itemData.itemTen.image = love.graphics.newImage("graphics/itemKey.png")
 
   --end credits
     assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
@@ -123,50 +123,50 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
       --print(itemData.choiceSelected)
 
       if worldData.scenarioSelected == 1 then
-          print("Psst: 3 is good, 2 is neutral")
-          if selectItem(3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11) == 1 then  -- item 3 good, 2 neutral
+          print("Psst: 2 is good, 1 is neutral")
+          if selectItem(2, 1, 0, 3, 4, 5, 6, 7, 8, 9) == 1 then  -- item 3 good, 2 neutral
             display_dialogue(dialogue.scenarioOneGood)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
             worldData.scenarioSelected = 2 --prepare for next scenario
-            itemData.itemThree.itemShow = 0
-          elseif selectItem(3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11) == 2 then
+            itemData.itemTwo.itemShow = 0
+          elseif selectItem(2, 1, 0, 3, 4, 5, 6, 7, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioOneNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
             worldData.scenarioSelected = 2 --prepare for next scenario
-            itemData.itemTwo.itemShow = 0
-          elseif selectItem(3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11) == 3 then
+            itemData.itemOne.itemShow = 0
+          elseif selectItem(2, 1, 0, 3, 4, 5, 6, 7, 8, 9) == 3 then
             display_dialogue(dialogue.scenarioOneBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       elseif worldData.scenarioSelected == 2 then
-          print("Psst: 5 is good, 8 is neutral")
-          if selectItem(5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11) == 1 then
+          print("Psst: 4 is good, 7 is neutral")
+          if selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 1 then
             display_dialogue(dialogue.scenarioTwoGood)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
             worldData.scenarioSelected = 3 --prepare for next scenario
-            itemData.itemFive.itemShow = 0
-          elseif selectItem(5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11) == 2 then
+            itemData.itemFour.itemShow = 0
+          elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
             worldData.scenarioSelected = 3 --prepare for next scenario
-            itemData.itemEight.itemShow = 0
-          elseif selectItem(5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11) == 3 then
+            itemData.itemSeven.itemShow = 0
+          elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 3 then
             display_dialogue(dialogue.scenarioTwoBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       elseif worldData.scenarioSelected == 3 then
-          print("Psst: 1 is good, 6 is neutral")
-          if selectItem(1, 6, 2, 3, 4, 5, 7, 8, 9, 10, 11) == 1 then
+          print("Psst: 0 is good, 5 is neutral")
+          if selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 1 then
             display_dialogue(dialogue.scenarioThreeGood)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
-            worldData.scenarioSelected = 3 --prepare for next scenario
-            itemData.itemOne.itemShow = 0
-          elseif selectItem(1, 6, 2, 3, 5, 7, 8, 9, 10, 11) == 2 then
+            worldData.scenarioSelected = 4 --prepare for next scenario
+            itemData.itemZero.itemShow = 0
+          elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
-            worldData.scenarioSelected = 3 --prepare for next scenario
-            itemData.itemSix.itemShow = 0
-          elseif selectItem(1, 6, 2, 3, 4, 5, 7, 8, 9, 10, 11) == 3 then
+            worldData.scenarioSelected = 4 --prepare for next scenario
+            itemData.itemFive.itemShow = 0
+          elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 3 then
             display_dialogue(dialogue.scenarioTwoBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
@@ -214,7 +214,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   end
 
   if worldData.state == enums.game_states.OUTRO then
-    print("Scenario3 State")
+    print("Scenario Outro")
     display_dialogue(dialogue.scenarioOutro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
   end
@@ -280,38 +280,38 @@ function love.draw()
 
 -- Use a for loop here if time
 --items
+if itemData.itemZero.itemShow == 1 then
+  love.graphics.draw(itemData.itemZero.image, 128, 192)
+end
 if itemData.itemOne.itemShow == 1 then
-  love.graphics.draw(itemData.itemOne.image, 128, 192)
+  love.graphics.draw(itemData.itemOne.image, 320, 192)
 end
 if itemData.itemTwo.itemShow == 1 then
-  love.graphics.draw(itemData.itemTwo.image, 320, 192)
+  love.graphics.draw(itemData.itemTwo.image, 512, 192)
 end
 if itemData.itemThree.itemShow == 1 then
-  love.graphics.draw(itemData.itemThree.image, 512, 192)
+  love.graphics.draw(itemData.itemThree.image, 704, 192)
 end
 if itemData.itemFour.itemShow == 1 then
-  love.graphics.draw(itemData.itemFour.image, 704, 192)
+  love.graphics.draw(itemData.itemFour.image, 128, 384)
 end
 if itemData.itemFive.itemShow == 1 then
-  love.graphics.draw(itemData.itemFive.image, 128, 384)
+  love.graphics.draw(itemData.itemFive.image, 320, 384)
 end
 if itemData.itemSix.itemShow == 1 then
-  love.graphics.draw(itemData.itemSix.image, 320, 384)
+  love.graphics.draw(itemData.itemSix.image, 512, 384)
 end
 if itemData.itemSeven.itemShow == 1 then
-  love.graphics.draw(itemData.itemSeven.image, 512, 384)
+  love.graphics.draw(itemData.itemSeven.image, 704, 384)
 end
 if itemData.itemEight.itemShow == 1 then
-  love.graphics.draw(itemData.itemEight.image, 704, 384)
+  love.graphics.draw(itemData.itemEight.image, 128, 576)
 end
 if itemData.itemNine.itemShow == 1 then
-  love.graphics.draw(itemData.itemNine.image, 128, 576)
+  love.graphics.draw(itemData.itemNine.image, 320, 576)
 end
 if itemData.itemTen.itemShow == 1 then
-  love.graphics.draw(itemData.itemTen.image, 320, 576)
-end
-if itemData.itemEleven.itemShow == 1 then
-  love.graphics.draw(itemData.itemEleven.image, 512, 576)
+  love.graphics.draw(itemData.itemTen.image, 512, 576)
 end
 
 
@@ -410,18 +410,18 @@ end
 function love.keypressed( key )
   if key == "d" or key =="right" then
     text = "Right  -- pressed!"
-    if itemData.itemOne.itemShow == 1 then
-      itemData.itemOne.itemShow = 0
-    else itemData.itemOne.itemShow = 1
+    if itemData.itemZero.itemShow == 1 then
+      itemData.itemZero.itemShow = 0
+    else itemData.itemZero.itemShow = 1
     end
   end
   if key == "a" then
     text = "a  -- pressed!"
-    itemData.choiceSelected = 10
+
   end
   if key == "b" then
     text = "b  -- pressed!"
-    itemData.choiceSelected = 11
+
   end
 
   if key == "j" then
@@ -496,6 +496,8 @@ function love.keypressed( key )
   end
   if key == "0" then
     text = "Zero  -- pressed!"
+    itemData.choiceSelected = 0
+
   end
   if key == "backspace" then
     text = "Backspace  -- pressed!"
