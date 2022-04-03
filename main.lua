@@ -39,33 +39,30 @@ function love.load()
   assets.images.catHappy = love.graphics.newImage("graphics/catHappy.png")
   assets.images.catScared = love.graphics.newImage("graphics/catScared.png")
   assets.images.catAnnoyed = love.graphics.newImage("graphics/catAnnoyed.png")
+  assets.images.catMew = love.graphics.newImage("graphics/catNeutralMew.png")
+  assets.images.catMrow = love.graphics.newImage("graphics/catMrowDisappointed.png")
+  assets.images.catHiss = love.graphics.newImage("graphics/catHiss.png")
+
 
 --items
 -- cat
-  itemData.itemOne.image = love.graphics.newImage("graphics/itemFish.png")
+  itemData.itemOne.image = love.graphics.newImage("graphics/itemPotato.png")
   itemData.itemTwo.image= love.graphics.newImage("graphics/itemShark.png")
   itemData.itemThree.image = love.graphics.newImage("graphics/itemPudding.png")
-  itemData.itemFour.image = love.graphics.newImage("graphics/itemPotato.png")
-  itemData.itemFive.image = love.graphics.newImage("graphics/itemPotato.png")
-  itemData.itemSix.image = love.graphics.newImage("graphics/itemKey.png")
+  itemData.itemFour.image = love.graphics.newImage("graphics/itemNeedle.png")
+  itemData.itemFive.image = love.graphics.newImage("graphics/itemFish.png")
+  itemData.itemSix.image = love.graphics.newImage("graphics/itemHorseshoe.png")
   itemData.itemSeven.image = love.graphics.newImage("graphics/itemPerfume.png")
   itemData.itemEight.image = love.graphics.newImage("graphics/itemBottle.png")
   itemData.itemNine.image = love.graphics.newImage("graphics/itemRope.png")
-  itemData.itemTen.image = love.graphics.newImage("graphics/itemFish.png")
+  itemData.itemTen.image = love.graphics.newImage("graphics/itemDracula.png")
   itemData.itemEleven.image = love.graphics.newImage("graphics/itemKey.png")
-
 
   --end credits
     assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
 
 
-
   -- fonts
-
---  assets.fonts.regular = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 28, "none")
---  assets.fonts.header = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 56, "none")
---  assets.fonts.dialogue = love.graphics.newFont("fonts/IndieFlower-Regular.ttf", 22, "none")
-
   assets.fonts.regular = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 28, "none")
   assets.fonts.header = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 56, "none")
   assets.fonts.dialogue = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 22, "none")
@@ -112,6 +109,65 @@ end
 -- runs continuously. logic and game state updates go here
 function love.update(dt)
 
+
+    if worldData.state == enums.game_states.WAITINGFORRESPONSE then
+      print("Waiting for reponse")
+      print(itemData.choiceStatus)
+
+      if worldData.scenarioSelected == 1 then
+        if selectItem(3, 2) == 1 then  -- item 3 good, 2 neutral
+          display_dialogue(dialogue.scenarioOneGood)
+          worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
+          worldData.scenarioSelected = 2 --prepare for next scenario
+          itemData.itemThree.itemShow = 0
+        elseif selectItem(3, 2) == 2 then
+          display_dialogue(dialogue.scenarioOneNeutral)
+          worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
+          worldData.scenarioSelected = 2 --prepare for next scenario
+          itemData.itemTwo.itemShow = 0
+        elseif selectItem(3, 4) == 3 then
+          display_dialogue(dialogue.scenarioOneBad)
+          worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+        end
+    elseif worldData.scenarioSelected == 2 then
+        if selectItem(1, 2) == 1 then
+          display_dialogue(dialogue.scenarioTwoGood)
+          worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
+          itemData.itemOne.itemShow = 0
+          print_dialogue_continue_caret()
+        elseif selectItem(1, 2) == 2 then
+          display_dialogue(dialogue.scenarioTwoNeutral)
+          worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
+          itemData.itemTwo.itemShow = 0
+          print_dialogue_continue_caret()
+        elseif selectItem(1, 2) == 3 then
+          display_dialogue(dialogue.scenarioTwoBad)
+          worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+        end
+      end
+    end
+
+
+
+  if worldData.state == enums.game_states.TRANSITIONFROMGOOD then
+    print("Transition from Good")
+    print(worldData.scenarioSelected)
+    display_dialogue(dialogue.scenarioTransitionFromGood)
+    worldData.current_dialogue.game_mode_after_dialogue_done = worldData.scenarioSelected
+    print("worldData value after")
+    print(worldData.scenarioSelected)
+  end
+
+  if worldData.state == enums.game_states.TRANSITIONFROMNEUTRAL then
+    print("Transition from Neutral")
+    print(worldData.scenarioSelected)
+    display_dialogue(dialogue.scenarioTransitionFromNeutral)
+    worldData.current_dialogue.game_mode_after_dialogue_done = worldData.scenarioSelected
+    print("worldData value after")
+    print(worldData.scenarioSelected)
+  end
+
+
   -- trigger scenarios
   if worldData.state == enums.game_states.SCENARIO1 then
     print("Scenario1 State")
@@ -119,74 +175,20 @@ function love.update(dt)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
+
   if worldData.state == enums.game_states.SCENARIO2 then
     print("Scenario2 State")
     display_dialogue(dialogue.scenarioTwoIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
-  if worldData.state == enums.game_states.TRANSITIONFROMGOOD then
-    print("Transition from Good")
-    print(worldData.scenarioSelected)
-    display_dialogue(dialogue.scenarioTransitionFromGood)
-    worldData.current_dialogue.game_mode_after_dialogue_done = worldData.scenarioSelected + 1
-    print("worldData value after")
-    print(worldData.scenarioSelected)
+
+
+  -- start
+  if love.keyboard.isDown('s') then
+    worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+    display_dialogue(dialogue.introduction)
   end
-
---[[
-  if worldData.state == enums.game_states.WAITINGFORRESPONSE then
-    print("Waiting for reponse")
-    print(itemData.choiceStatus)
-
-    if selectItem(1, 2) == 1 then
-      display_dialogue(dialogue.scenarioOneGood)
-      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
-    elseif selectItem(1, 2) == 2 then
-      display_dialogue(dialogue.scenarioOneNeutral)
-      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
-    elseif selectItem(1, 2) == 3 then
-      display_dialogue(dialogue.scenarioOneBad)
-      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
-    end
-  end
-]]--
-
-  if worldData.state == enums.game_states.WAITINGFORRESPONSE then
-    print("Waiting for reponse")
-    print(itemData.choiceStatus)
-
-    if worldData.scenarioSelected == 1 then
-      if selectItem(3, 4) == 1 then
-        display_dialogue(dialogue.scenarioOneGood)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
-        itemData.itemThree.itemShow = 0
-      elseif selectItem(3, 4) == 2 then
-        display_dialogue(dialogue.scenarioOneNeutral)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
-        itemData.itemFour.itemShow = 0
-      elseif selectItem(3, 4) == 3 then
-        display_dialogue(dialogue.scenarioOneBad)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
-      end
-  elseif worldData.scenarioSelected == 2 then
-      if selectItem(1, 2) == 1 then
-        display_dialogue(dialogue.scenarioTwoGood)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
-        itemData.itemOne.itemShow = 0
-        print_dialogue_continue_caret()
-      elseif selectItem(1, 2) == 2 then
-        display_dialogue(dialogue.scenarioTwoNeutral)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
-        itemData.itemTwo.itemShow = 0
-        print_dialogue_continue_caret()
-      elseif selectItem(1, 2) == 3 then
-        display_dialogue(dialogue.scenarioTwoBad)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
-      end
-    end
-  end
-
 
   -- item selection
   if love.keyboard.isDown('1') then

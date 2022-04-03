@@ -17,7 +17,7 @@ dialogue.introduction = {
     text = "wait...where did I..."
   },
   {
-    avatarUpper = "catScared",
+    avatarUpper = "catHiss",
     avatarLower = "knightScared",
     text = "Hiss!"
   },
@@ -27,7 +27,7 @@ dialogue.introduction = {
     text = "Demos!? Where are you Demos?!"
   },
   {
-    avatarUpper = "catHappy",
+    avatarUpper = "catMrow",
     avatarLower = "knightNeutral",
     text = "Mrrow!?"
   },
@@ -37,7 +37,7 @@ dialogue.introduction = {
     text = "Oh! You've slipped into the bag where I keep all the very precious junk I accumulate. Let me just get you..."
   },
   {
-    avatarUpper = "catScared",
+    avatarUpper = "catHiss",
     avatarLower = "knightScared",
     text = "Hiss!"
   },
@@ -408,5 +408,93 @@ dialogue.scenarioTwoBad = {
     avatarUpper = "catHappy",
     avatarLower = "catHappy",
     text = "Hurrrrrk! Meow!"
+  },
+}
+
+dialogue.scenarioOutro = {
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catHappy",
+    text = "You poke your head out of the bag and see it at last--In the distance but swiftly approaching, home. Your own little bed. Your water dish and kibble. Collection of rare mice on bouncy strings."
+  },
+  {
+    avatarUpper = "knightNeutral",
+    avatarLower = "catHappy",
+    text = "Wait, what? Really? We have arrived at home, and I am still in one piece? I've not been hit by a wrecking ball, or swallowed by some horrific slime monster alongside some mediocre pun like ‘Go to gel'?"
+  },
+  {
+    avatarUpper = "catHappy",
+    avatarLower = "catHappy",
+    text = "Mrow!"
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catNeutral",
+    text = "Honestly you can hardly believe it either. It seemed inevitable to you that he would meet his fate on his travels, yet here he is, physically unharmed and home again at last."
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catneutral",
+    text = "The giant runs towards home, his face probably breaking into a beaming smile beneath that ridiculous but convenient for illustration purposes helmet."
+  },
+  {
+    avatarUpper = "knightHappy",
+    avatarLower = "catneutral",
+    text = "I'll sell all my exotic and precios trinkets and buy a cow! Settle down, have a family! It's all happening at last! Now all I have to do is climb a simple set of five hundred treacherously winding stairs without going a pixel over on one side or the other!"
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catScared",
+    text = "Uh oh. You have a bad feeling about this. The human, on the other hand, joyously leaps up two stairs at a time with reckless abandon."
+  },
+  {
+    avatarUpper = "catScared",
+    avatarLower = "catScared",
+    text = "Mrow?"
+ },
+  {
+    avatarUpper = "knightHappy",
+    avatarLower = "catAnnoyed",
+    text = "Hahaha! No need to be afraid my tiny chum, our lives of danger are over! Here, why not walk with me for a bit!"
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catNeutral",
+    text = "Unceremoniously you are dumped from the bag onto the stairway just below the human. You blink in the light, confused and more than a bit annoyed at having to walk."
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catNeutral",
+    text = "As your vision clears you see that one of the giant's useless bits has fallen out with you and is now clinking its way down the steps. The human turns and looks at it as it falls."
+  },
+  {
+    avatarUpper = "knightHappy",
+    avatarLower = "catAnnoyed",
+    text = "Oh! One of my many valuable bits of clutter! I'll just grab that and-- "
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catAnnoyed",
+    text = "You really did it to him this time. Tripping over you he falls to his death off the needlessly perilous stairs."
+  },
+  {
+    avatarUpper = "catAnnoyed",
+    avatarLower = "catAnnoyed",
+    text = "Mrow."
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catNeutral",
+    text = "With nothing else to be done you press on. At the top of the stair you find a hopper full of kibble and all the sparkly crinkle balls you could ever bat around."
+  },
+  {
+    avatarUpper = "narratorReading",
+    avatarLower = "catHappy",
+    text = "Shame about the big one, but you're sure on the next reload he'll make it up just fine. So long as you're here, though, you might as well enjoy some peace and quiet."
+  },
+  {
+    avatarUpper = "catHappy",
+    avatarLower = "catHappy",
+    text = "Purrr!"
   },
 }

@@ -51,6 +51,8 @@ enums = {
     SCENARIO1 = 1,
     SCENARIO2 = 2,
     SCENARIO3 = 3,
+    TRANSITIONFROMGOOD = 5,
+    TRANSITIONFROMNEUTRAL = 6,
     WAITINGFORRESPONSE = 9
 
   }
@@ -58,6 +60,7 @@ enums = {
 
 worldData = {
   state = enums.game_states.MAIN_ACTION,
+  scenarioSelected = nil,
   grid = {
     width = nil,
     height = nil,
@@ -74,10 +77,11 @@ worldData = {
     chunk_index = 1,
     chunk_length = 0,
     game_mode_after_dialogue_done = enums.game_states.MAIN_ACTION,
+    scenaro_after_dialogue_done = enums.game_states.MAIN_ACTION,
+
   },
   cursor_blink_time = 0,
   numberGrid = 0, -- 0 off, 1 display
-  scenarioSelected = nil,
   grayScreen = nil,
 }
 
