@@ -24,6 +24,10 @@ function love.load()
 
   assets.images.characterBlank = love.graphics.newImage("graphics/characterBlank.png")
 
+--end credits
+  assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
+
+
 -- knight
   assets.images.knightNeutral = love.graphics.newImage("graphics/knightNeutral.png")
   assets.images.knightHappy = love.graphics.newImage("graphics/knightHappy.png")
@@ -70,8 +74,9 @@ function love.load()
 
   print("Game loaded! Let's go.")
 
-  worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.MAIN_ACTION
+  worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
   display_dialogue(dialogue.introduction)
+
 end
 
 
@@ -123,17 +128,32 @@ function love.update(dt)
 
 
   -- trigger scenarios
+  if worldData.state == enums.game_states.SCENARIO1 then
+    print("Scenario1 State")
+    display_dialogue(dialogue.scenario1intro)
+    worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
+  end
+
+
+  if worldData.state == enums.game_states.WAITINGFORRESPONSE then
+    selectItem()
+  end
+
+  --[[
   if love.keyboard.isDown('p') then
       worldData.state = enums.game_states.SCENARIO1
       print("Scenario1 State")
       display_dialogue(dialogue.scenario1intro)
+      print("The correct choice is:")
+      worldData.choiceCorrect = 1
+      print(worldData.choiceCorrect)
+      selectItem ()
   end
+]]--
 
   -- item selection
   if love.keyboard.isDown('1') then
-      worldData.state = enums.game_states.SCENARIO1
-      print("Scenario1 State")
-      display_dialogue(dialogue.scenario1)
+
   end
 
 
@@ -185,20 +205,16 @@ function love.draw()
   local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
   love.graphics.setColor(0.1, 0.1, 0.1, 1)
   love.graphics.setColor(1, 1, 1, 1)
---  print_normal("z85000", 40, 42)
---[[
-  if worldData.state == enums.game_states.MAIN_ACTION then
-    if commandBar.index <= 5 then
-      print_dialogue_text("Enter commands to fill the queue.")
-    end
 
-    if commandBar.index > 5 then
-      print_dialogue_text("Command queue full. Execute now!")
-    end
-  end
-]]--
 
   love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
+
+-- Waiting for Response
+if worldData.state == enums.game_states.WAITINGFORRESPONSE then
+      local substr = string.sub(worldData.current_dialogue.text, 1, worldData.current_dialogue.len_to_print)
+      print_dialogue_text("Which item will you give to the knight? (Select 1-9)")
+      print_dialogue_continue_caret()
+end
 
 
   -- love.graphics.draw(assets.images.player, 300, 400, player.facing)
@@ -228,6 +244,7 @@ function love.draw()
   end
 
   if worldData.state == enums.game_states.SCENARIO1 then
+    print("Scenario1 started")
     local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
 
     -- overlay to dim the play grid while dialogue is happening
@@ -251,17 +268,6 @@ function love.draw()
     love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
   end
 
---[[
-  -- overlay to dim the play grid when exploded
-  if worldData.state == enums.game_states.EXPLODED then
-    love.graphics.setColor(1, 0, 0, 0.5)
-    love.graphics.rectangle('fill', 0, 0, 1024, 768)
-    love.graphics.setColor(1, 1, 1, 1)
-    print_header("EXPLOSION!!", 400, 300)
-    print_header("Press 'r' to play again", 300, 400)
-    print_header("or 'ESC' to quit.", 300, 450)
-  end
-]]--
 
   if worldData.state == enums.game_states.WIN then
     love.graphics.setColor(0, 0, 1, 0.5)
@@ -470,6 +476,18 @@ function advance_dialogue()
   worldData.current_dialogue.len_to_print = 0
 
   worldData.current_dialogue.chunk_index = idx
+end
+
+-- Select item
+function selectItem ()
+  print("Which item do you give the knight? (Select 1-9)")
+  if love.keyboard.isDown("1") then
+    print("You win!")
+  else
+    print("Make a selection")
+  end
+
+
 end
 
 --[[

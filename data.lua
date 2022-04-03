@@ -54,6 +54,7 @@ enums = {
     SCENARIO1 = 6,
     SCENARIO2 = 7,
     SCENARIO3 = 8,
+    WAITINGFORRESPONSE = 9
 
   }
 }
@@ -77,26 +78,11 @@ worldData = {
     chunk_length = 0,
     game_mode_after_dialogue_done = enums.game_states.MAIN_ACTION,
   },
+  choiceCorrect = 0,
   cursor_blink_time = 0,
 }
 
 
--- Command Bar variables.
-commandBar = { --Note: indices start at 1 in Love2d rather than 0
-
-  index = nil, --keeping track of which command is selected
-  queue_timer = 0,  -- time in seconds since last command executed
-
-  command = {
-    first = nil, -- 1st command
-    second = nil, -- 2nd command
-    third = nil, -- 3rd command
-    fourth = nil, -- 4th command
-    fifth = nil,  -- 5th command
-  },
-
-  image = {},
-}
 
 -- Keeping track of keyboard state. If key is not pressed, state is false.
 keyState = {
