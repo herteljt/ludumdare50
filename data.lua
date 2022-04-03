@@ -16,19 +16,20 @@ assets = {
     avatarupper = nil,
     narrator = nil,
     fight = nil,
-    z85000 = nil,
-    biff_enthusiastic = nil,
-    biff_tired = nil,
-    bored_teenager = nil,
-    alien_excited = nil,
-    alien_disappointed = nil,
-    goal = nil,
     end_credits = nil,
   },
   player ={
 
   },
-  music = {
+  musicA = {
+    state = nil,
+    intro = nil,
+    level = nil,
+    encounter = nil,
+    win = nil,
+    incomingmessage = nil,
+  },
+  musicB = {
     state = nil,
     intro = nil,
     level = nil,
@@ -46,14 +47,10 @@ assets = {
 enums = {
   game_states = {
     MAIN_ACTION = 0,
-    DIALOGUE = 1,
-    EXPLODED = 2,
-    DEBUG = 3,
-    RUNNING_COMMAND_QUEUE = 4,
-    WIN = 5,
-    SCENARIO1 = 6,
-    SCENARIO2 = 7,
-    SCENARIO3 = 8,
+    DIALOGUE = 11,
+    SCENARIO1 = 1,
+    SCENARIO2 = 2,
+    SCENARIO3 = 3,
     WAITINGFORRESPONSE = 9
 
   }
@@ -78,10 +75,30 @@ worldData = {
     chunk_length = 0,
     game_mode_after_dialogue_done = enums.game_states.MAIN_ACTION,
   },
-  choiceCorrect = 0,
   cursor_blink_time = 0,
+  numberGrid = 0 -- 0 off, 1 display
 }
 
+itemData = {
+  choiceGood = nil,
+  choiceNeutral = nil,
+  choiceBad = nil,
+  choiceSelected = nil,
+  choiceStatus = 0, -- 1 correct, 2 neutral, 0 reset, 3 incorrect
+
+  itemOne = {
+    itemShow = nil,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemTwo = {
+    itemShow = nil,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+}
 
 
 -- Keeping track of keyboard state. If key is not pressed, state is false.

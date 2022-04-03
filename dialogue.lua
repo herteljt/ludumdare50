@@ -63,7 +63,7 @@ dialogue.introduction = {
   },
 }
 
-dialogue.scenario1intro = {
+dialogue.scenarioOneIntro = {
   {
     avatarUpper = "narrator",
     avatarLower = "knightNeutral",
@@ -91,16 +91,16 @@ dialogue.scenario1intro = {
   },
 }
 
-dialogue.scenario1good = {
+dialogue.scenarioOneGood = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "You bat the item out of the bag into your human’s waiting hands. As the bag closes you hear a lot of strange ululations and braying sounds."
+    text = "You bat the item out of the bag into your human's waiting hands. As the bag closes you hear a lot of strange ululations and braying sounds."
   },
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "The bag jostles wildly as if you are being carried. Err ... well you’re always being carried, I guess...I mean that your carrier is being carried. The person carrying you, I mean. You get it. The sounds of the llamas grows to a fever pitch! Then all goes quiet."
+    text = "The bag jostles wildly as if you are being carried. Err ... well you're always being carried, I guess ... I mean that your carrier is being carried. The person carrying you, I mean. You get it. The sounds of the llamas grows to a fever pitch! Then all goes quiet."
   },
   {
     avatarUpper = "narrator",
@@ -115,6 +115,65 @@ dialogue.scenario1good = {
   {
     avatarUpper = "knightHappy",
     avatarLower = "catHappy",
-    text = "Anyway, I ran out the back while they were distracted with planning my coronation."
+    text = "Anyway, I grabbed that and ran out the back while they were distracted with planning my coronation."
+  },
+}
+dialogue.scenarioOneNeutral = {
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "Daintily you pick up the item with your mouth and place it in your human's hand, only biting him very lightly in the process, barely any blood is spilt."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "As he raises the item up there is an audible sigh of relief from the llamas, as if to say that is obviously something a llama would never have."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "If you weren't a cat it might be slightly disturbing to you to hear llamas be so discerning, but you've long since lost interest and are cleaning yourself anyway."
+  },
+}
+dialogue.scenarioOneBad = {
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You nuzzle your human's hand and he pulls it away in shock. Must keep them guessing, yes? As he pulls his hand from the bag he takes an item with him and holds it up to the creatures. Immediately all the screaming stops."
+  },
+  {
+    avatarUpper = "knightScared",
+    avatarLower = "catNeutral",
+    text = "That's right! I have one...and I'll use it if you put one toe closer!"
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You are not sure Llamas have toes. But you are a cat, so either way it doesn't really bother you. It seems to have upset the llamas though, as they have begun emitting what can only be described as a low growl."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "That, at least, is something you are fairly sure that Llamas don't do, but it's even odds your human can't tell an elephant from an octopus so who knows what sort of creatures they actually are."
+  },
+  {
+    avatarUpper = "knightScared",
+    avatarLower = "catNeutral",
+    text = "Uh...good llamas! Nasty fangs there for herbivores, I must say."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "When you crawl from the bag some time later to go hunting whatever animal your human actually saw is gone, but then again, so is the human."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You know what they say: Beware the Llama, for it is deadly, and quick to anger."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "Well they don't say that but maybe they should."
   },
 }
