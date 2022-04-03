@@ -53,14 +53,15 @@ enums = {
     SCENARIO3 = 3,
     TRANSITIONFROMGOOD = 5,
     TRANSITIONFROMNEUTRAL = 6,
-    WAITINGFORRESPONSE = 9
+    WAITINGFORRESPONSE = 9,
+    OUTRO = 10,
 
   }
 }
 
 worldData = {
   state = enums.game_states.MAIN_ACTION,
-  scenarioSelected = nil,
+  scenarioSelected = nil, --keep track of selected scenario
   grid = {
     width = nil,
     height = nil,
@@ -78,7 +79,6 @@ worldData = {
     chunk_length = 0,
     game_mode_after_dialogue_done = enums.game_states.MAIN_ACTION,
     scenaro_after_dialogue_done = enums.game_states.MAIN_ACTION,
-
   },
   cursor_blink_time = 0,
   numberGrid = 0, -- 0 off, 1 display
@@ -89,7 +89,7 @@ itemData = {
   choiceGood = nil,
   choiceNeutral = nil,
   choiceBad = nil,
-  choiceSelected = nil,
+  choiceSelected = 100,
   choiceStatus = 0, -- 1 correct, 2 neutral, 0 reset, 3 incorrect
 
   itemOne = {

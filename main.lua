@@ -13,12 +13,13 @@ function love.load()
   -- world data
   worldData.grid.width = 16
   worldData.grid.height = 9
-  worldData.grid.border = 0 
+  worldData.grid.border = 0
 
 
 -- background
   assets.images.background = love.graphics.newImage("graphics/background.png")
   assets.images.backgroundNumbers = love.graphics.newImage("graphics/numberGrid.png")
+  assets.images.backgroundOverlay = love.graphics.newImage("graphics/overlay.png")
 
 --narrator
   assets.images.narrator = love.graphics.newImage("graphics/narrator.png")
@@ -93,14 +94,14 @@ function love.load()
   print("Game loaded! Let's go.")
 
 -- Comment out to test scenarios
---worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
---display_dialogue(dialogue.introduction)
+worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+display_dialogue(dialogue.introduction)
 
 
 
 -- Scenario Debugging
-worldData.scenarioSelected = 1
-worldData.state = enums.game_states.SCENARIO1
+--worldData.scenarioSelected = 3
+--worldData.state = enums.game_states.SCENARIO3
 
 end
 
@@ -111,42 +112,59 @@ function love.update(dt)
 
 
     if worldData.state == enums.game_states.WAITINGFORRESPONSE then
-      print("Waiting for reponse")
-      print(itemData.choiceStatus)
+    --  print("Waiting for reponse")
+    --  print(itemData.choiceSelected)
 
       if worldData.scenarioSelected == 1 then
-        if selectItem(3, 2) == 1 then  -- item 3 good, 2 neutral
+        print("Psst: 3 is good, 2 is neutral")
+        if selectItem(3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11) == 1 then  -- item 3 good, 2 neutral
           display_dialogue(dialogue.scenarioOneGood)
           worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
           worldData.scenarioSelected = 2 --prepare for next scenario
           itemData.itemThree.itemShow = 0
-        elseif selectItem(3, 2) == 2 then
+        elseif selectItem(3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11) == 2 then
           display_dialogue(dialogue.scenarioOneNeutral)
           worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
           worldData.scenarioSelected = 2 --prepare for next scenario
           itemData.itemTwo.itemShow = 0
-        elseif selectItem(3, 4) == 3 then
+        elseif selectItem(3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11) == 3 then
           display_dialogue(dialogue.scenarioOneBad)
           worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
         end
     elseif worldData.scenarioSelected == 2 then
-        if selectItem(1, 2) == 1 then
+          print("Psst: 5 is good, 8 is neutral")
+        if selectItem(5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11) == 1 then
           display_dialogue(dialogue.scenarioTwoGood)
           worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
-          itemData.itemOne.itemShow = 0
-          print_dialogue_continue_caret()
-        elseif selectItem(1, 2) == 2 then
+          worldData.scenarioSelected = 3 --prepare for next scenario
+          itemData.itemFive.itemShow = 0
+        elseif selectItem(5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11) == 2 then
           display_dialogue(dialogue.scenarioTwoNeutral)
           worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
-          itemData.itemTwo.itemShow = 0
-          print_dialogue_continue_caret()
-        elseif selectItem(1, 2) == 3 then
+          worldData.scenarioSelected = 3 --prepare for next scenario
+          itemData.itemEight.itemShow = 0
+        elseif selectItem(5, 8, 1, 2, 3, 4, 6, 7, 9, 10, 11) == 3 then
           display_dialogue(dialogue.scenarioTwoBad)
           worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
         end
+      elseif worldData.scenarioSelected == 3 then
+          print("Psst: 1 is good, 6 is neutral")
+          if selectItem(1, 6, 2, 3, 4, 5, 7, 8, 9, 10, 11) == 1 then
+            display_dialogue(dialogue.scenarioThreeGood)
+            worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
+            worldData.scenarioSelected = 3 --prepare for next scenario
+            itemData.itemOne.itemShow = 0
+          elseif selectItem(1, 6, 2, 3, 5, 7, 8, 9, 10, 11) == 2 then
+            display_dialogue(dialogue.scenarioTwoNeutral)
+            worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
+            worldData.scenarioSelected = 3 --prepare for next scenario
+            itemData.itemSix.itemShow = 0
+          elseif selectItem(1, 6, 2, 3, 4, 5, 7, 8, 9, 10, 11) == 3 then
+            display_dialogue(dialogue.scenarioTwoBad)
+            worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+          end
       end
     end
-
 
 
   if worldData.state == enums.game_states.TRANSITIONFROMGOOD then
@@ -182,6 +200,17 @@ function love.update(dt)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
+  if worldData.state == enums.game_states.SCENARIO3 then
+    print("Scenario3 State")
+    display_dialogue(dialogue.scenarioThreeIntro)
+    worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
+  end
+
+  if worldData.state == enums.game_states.OUTRO then
+    print("Scenario3 State")
+    display_dialogue(dialogue.scenarioOutro)
+    worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+  end
 
 
   -- start
@@ -289,8 +318,10 @@ end
 -- Waiting for Response
 if worldData.state == enums.game_states.WAITINGFORRESPONSE then
       local substr = string.sub(worldData.current_dialogue.text, 1, worldData.current_dialogue.len_to_print)
-      print_dialogue_text("Which item will you give to the knight? (Select 1-9)")
-      print_dialogue_continue_caret()
+      love.graphics.draw(assets.images[worldData.current_dialogue.avatarUpper], 0, 0) --upper Avatar image. Changes with speaker
+      love.graphics.draw(assets.images[worldData.current_dialogue.avatarLower], 704, 576) --Lower avatar image.
+      print_dialogue_text("Which item will you give to Sir Spaciouspants? (Select 1-9, a, b)")
+      --print_dialogue_continue_caret()
 end
 
 
@@ -304,7 +335,7 @@ end
 
         love.graphics.setColor(1, 1, 1, 1)
         love.graphics.draw(assets.images[worldData.current_dialogue.avatarUpper], 0, 0) --upper Avatar image. Changes with speaker
-        love.graphics.draw(assets.images.catNeutral, 704, 576) --Lower avatar image. Set statically to cat currently
+        love.graphics.draw(assets.images[worldData.current_dialogue.avatarLower], 704, 576) --Lower avatar image.
         love.graphics.setColor(1, 1, 1, 1)
   --      love.graphics.setColor(0, 0.8, 0, 1)
         --print_name(worldData.current_dialogue.name)
@@ -313,9 +344,10 @@ end
         print_dialogue_continue_caret()
       end
 
-      -- overlay to dim the play grid while dialogue is happening
-      love.graphics.setColor(0, 0, 0, 0.5)
-      love.graphics.rectangle('fill', 0, 64 * 3, 1024, 768)
+      -- overlay to dim lower area when making choice
+      love.graphics.draw(assets.images.backgroundOverlay,0,0)
+      --love.graphics.setColor(0, 0, 0, 0.5)
+      --love.graphics.rectangle('fill', 0, 64 * 3, 1024, 768)
 
 
       love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
@@ -376,17 +408,47 @@ function love.keypressed( key )
     else itemData.itemOne.itemShow = 1
     end
   end
-  if key == "a" or key =="left" then
-    text = "Left  -- pressed!"
+  if key == "a" then
+    text = "a  -- pressed!"
+    itemData.choiceSelected = 10
   end
+  if key == "b" then
+    text = "b  -- pressed!"
+    itemData.choiceSelected = 11
+  end
+
+  if key == "j" then
+    text = "j  -- pressed!"
+    worldData.scenarioSelected = 1
+    worldData.state = enums.game_states.SCENARIO1
+  end
+
+  if key == "k" then
+    text = "k  -- pressed!"
+    worldData.scenarioSelected = 2
+    worldData.state = enums.game_states.SCENARIO2
+  end
+
+  if key == "l" then
+    text = "l  -- pressed!"
+    worldData.scenarioSelected = 3
+    worldData.state = enums.game_states.SCENARIO3
+  end
+
+
+--[[
+
   if key == "w" or key =="up" then
     text = "Up  -- pressed!"
   end
   if key == "s" or key =="down" then
     text = "Down  -- pressed!"
   end
+]]--
+
   if key == "space" then
     text = "Space  -- pressed!"
+    itemData.choiceSelected = 100
   end
   if key == "1" then
     text = "One  -- pressed!"
@@ -395,7 +457,6 @@ function love.keypressed( key )
   if key == "2" then
     text = "Two  -- pressed!"
     itemData.choiceSelected = 2
-
   end
   if key == "3" then
     text = "Three  -- pressed!"
@@ -428,7 +489,6 @@ function love.keypressed( key )
   end
   if key == "0" then
     text = "Zero  -- pressed!"
-    itemData.choiceSelected = 10
   end
   if key == "backspace" then
     text = "Backspace  -- pressed!"
@@ -526,16 +586,39 @@ function advance_dialogue()
 end
 
 -- Select item
-function selectItem (good, neutral)
+function selectItem (good, neutral, bad1, bad2, bad3, bad4, bad5, bad6, bad7, bad8, bad9)
 --  print("Which item do you give the knight? (Select 0-9)")
---  print(keyValue)
   if itemData.choiceSelected == good then
-    itemData.choiceStatus = 1
-    return 1
+      itemData.choiceStatus = good
+      return 1
   elseif itemData.choiceSelected == neutral then
-     itemData.choiceStatus = 2
-     return 2
-  elseif itemData.choiceSelected == 3 then
+      itemData.choiceStatus = netural
+      return 2
+  elseif itemData.choiceSelected == bad1 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad2 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad3 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad4 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad5 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad6 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad7 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad8 then
+      itemData.choiceStatus = 3
+      return 3
+  elseif itemData.choiceSelected == bad9 then
       itemData.choiceStatus = 3
       return 3
   end
@@ -543,5 +626,5 @@ function selectItem (good, neutral)
 end
 
 function resetItemStatus ()
-  itemData.choiceSelected = 0
+  itemData.choiceSelected = 100
 end

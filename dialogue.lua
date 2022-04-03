@@ -120,11 +120,6 @@ dialogue.scenarioOneIntro = {
     avatarLower = "catScared",
     text = "I need something to convince them I taste awful!"
   },
-  {
-    avatarUpper = "narrator",
-    avatarLower = "catAnnoyed",
-    text = "Which item will you give to Sir Spaciouspants?"
-  },
 }
 
 dialogue.scenarioOneGood = {
@@ -411,9 +406,137 @@ dialogue.scenarioTwoBad = {
   },
 }
 
+
+
+dialogue.scenarioThreeIntro = {
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catAnnoyed",
+    text = "SCENARIO 3 INTRO - You are insanely hungry. How dare your human not feed you your second lunch. You start yowling at an insanely high interval, it's even hurting your own ears."
+  },
+  {
+    avatarUpper = "catAnnoyed",
+    avatarLower = "knightAnnoyed",
+    text = "MROW!!!!"
+  },
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catAnnoyed",
+    text = "Demos! We're in the forest of the Three Deadly Wizards! You've told them exactly where we are now. I thought I could have a break but no, not with this damn cat around. Here, give me my...hmm..."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catAnnoyed",
+    text = "The human sticks his hand in, clumsily. Maybe the shiny metal tastes good? You bite it. It tastes horrible and is not a worthy food offering. You yowl again and the horrible hand leaves."
+  },
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catAnnoyed",
+    text = "Fine! Just give me something and shush!"
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catAnnoyed",
+    text = "He really should just leave all the tactical work to you at this point. Can't even give you good food every hour. Shameful human. Better give him something to keep him alive though, he still has to feed you."
+  }
+}
+
+dialogue.scenarioThreeGood = {
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catHappy",
+    text = "You see the perfect item. So wonderful, so perfect, so shiny, so....wonderful...you bat it around. You bat it around more. It keeps running away from you, and you bat it around harder. You bat it so hard it shoots out of the bag. You hear a thud."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You don't seem to be moving, but poke your head out of the bag to see where your plaything went. It lays on the ground, with a wizard lying unconscious on the forest floor."
+  },
+  {
+    avatarUpper = "knightHappy",
+    avatarLower = "catNeutral",
+    text = "Demos! You did it! You knocked out one of the Three Deadly Wizards! The rest went running. Hopefully they know where they're going...And look! His wonderful and prized item, just laying there. I mean...I could take it. Not like he knows who I am anyway."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catAnnoyed",
+    text = "You dart back inside the bag as the new item drops in behind you. Your toy doesn't however, and the human starts to journey again. How dare he. He hasn't even fed you."
+  },
+  {
+    avatarUpper = "catAnnoyed",
+    avatarLower = "knightHappy",
+    text = "Mrowwwwww!!!"
+  },
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catNeutral",
+    text = "Ok! Ok, we'll take a stop. Jeez, this cat."
+  },
+}
+
+dialogue.scenarioThreeBad = {
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You just want to look for food. There better be some in here. You think you saw human take a bite of something earlier, maybe that's edible? You find it, take a bite, spit it out. That's revolting. How dare he even keep it in the bag with you. When he next reaches in, you give it to him to take it out with the rest of the trash."
+  },
+  {
+    avatarUpper = "knightConfused",
+    avatarLower = "catNeutral",
+    text = "Ah yes, horrible wizards, I have this....thing. It's poisonous! And deadly. Beware!"
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "There's silence in the woods for a moment. And one of the wizards speaks. Is it really poisonous and deadly? It doesn't seem like it. Otherwise you wouldn't be touching it."
+  },
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catAnnoyed",
+    text = "Yes! Very deadly! My life force is being sucked out of me as we speak the more I'm touching it. I'll touch it to you all too if you don't scram."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You hear low murmurings of the wizards speaking amongst each other. Then, one speaks to the knight. 'Can you just get out? We're not sure we want to spend some stamina on a guy with some moldy...thing.'"
+  },
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catAnnoyed",
+    text = "No! I refuse! I am going to walk through this forest and- hurk!"
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catAnnoyed",
+    text = "The giant has been hit by something ferocious that it even knocked you around the bag. You barely have time to get out when he falls straight on top of where you've been. You sniff his body, and he doesn't respond. The wizards do however, and they coo 'Kitty!' until you run away. Where are you going to get food now?!"
+  },
+  {
+    avatarUpper = "catAnnoyed",
+    avatarLower = "catAnnoyed",
+    text = "Mrow!!!"
+  },
+}
+
+dialogue.screnarioThreeNeutral = {
+  {
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
+    text = "You bat the first thing you see that annoys you out of the bag. The human fumbles to catch it, falling on his face."
+  },
+  {
+    avatarUpper = "narrator",
+    avatarLower = "knightNeutral",
+    text = "You hear uproarious laughter by three men, and your human picks himself up and starts jogging, metal clashing together in a cacophony of embarrassment. He mutters curses under his breath and you lick your paw, wondering when he's going to finally feed you."
+  },
+}
+
+
+
+
+-- Outro
 dialogue.scenarioOutro = {
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catHappy",
     text = "You poke your head out of the bag and see it at last--In the distance but swiftly approaching, home. Your own little bed. Your water dish and kibble. Collection of rare mice on bouncy strings."
   },
@@ -428,22 +551,22 @@ dialogue.scenarioOutro = {
     text = "Mrow!"
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catNeutral",
     text = "Honestly you can hardly believe it either. It seemed inevitable to you that he would meet his fate on his travels, yet here he is, physically unharmed and home again at last."
   },
   {
-    avatarUpper = "narratorReading",
-    avatarLower = "catneutral",
+    avatarUpper = "narrator",
+    avatarLower = "catNeutral",
     text = "The giant runs towards home, his face probably breaking into a beaming smile beneath that ridiculous but convenient for illustration purposes helmet."
   },
   {
     avatarUpper = "knightHappy",
-    avatarLower = "catneutral",
+    avatarLower = "catNeutral",
     text = "I'll sell all my exotic and precios trinkets and buy a cow! Settle down, have a family! It's all happening at last! Now all I have to do is climb a simple set of five hundred treacherously winding stairs without going a pixel over on one side or the other!"
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catScared",
     text = "Uh oh. You have a bad feeling about this. The human, on the other hand, joyously leaps up two stairs at a time with reckless abandon."
   },
@@ -458,12 +581,12 @@ dialogue.scenarioOutro = {
     text = "Hahaha! No need to be afraid my tiny chum, our lives of danger are over! Here, why not walk with me for a bit!"
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catNeutral",
     text = "Unceremoniously you are dumped from the bag onto the stairway just below the human. You blink in the light, confused and more than a bit annoyed at having to walk."
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catNeutral",
     text = "As your vision clears you see that one of the giant's useless bits has fallen out with you and is now clinking its way down the steps. The human turns and looks at it as it falls."
   },
@@ -473,7 +596,7 @@ dialogue.scenarioOutro = {
     text = "Oh! One of my many valuable bits of clutter! I'll just grab that and-- "
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catAnnoyed",
     text = "You really did it to him this time. Tripping over you he falls to his death off the needlessly perilous stairs."
   },
@@ -483,12 +606,12 @@ dialogue.scenarioOutro = {
     text = "Mrow."
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catNeutral",
     text = "With nothing else to be done you press on. At the top of the stair you find a hopper full of kibble and all the sparkly crinkle balls you could ever bat around."
   },
   {
-    avatarUpper = "narratorReading",
+    avatarUpper = "narrator",
     avatarLower = "catHappy",
     text = "Shame about the big one, but you're sure on the next reload he'll make it up just fine. So long as you're here, though, you might as well enjoy some peace and quiet."
   },
