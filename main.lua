@@ -85,7 +85,8 @@ function love.load()
 ]]--
 
 -- Remove after testing scenarios
-worldData.state = enums.game_states.SCENARIO1
+worldData.scenarioSelected = 2
+worldData.state = enums.game_states.SCENARIO2
 end
 
 
@@ -100,20 +101,56 @@ function love.update(dt)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
+  if worldData.state == enums.game_states.SCENARIO2 then
+    print("Scenario2 State")
+    display_dialogue(dialogue.scenarioTwoIntro)
+    worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
+  end
 
+--[[
   if worldData.state == enums.game_states.WAITINGFORRESPONSE then
     print("Waiting for reponse")
     print(itemData.choiceStatus)
 
     if selectItem(1, 2) == 1 then
       display_dialogue(dialogue.scenarioOneGood)
-      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.DIALOGUE
+      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
     elseif selectItem(1, 2) == 2 then
       display_dialogue(dialogue.scenarioOneNeutral)
-      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.DIALOGUE
+      worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
     elseif selectItem(1, 2) == 3 then
       display_dialogue(dialogue.scenarioOneBad)
       worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+    end
+  end
+]]--
+
+  if worldData.state == enums.game_states.WAITINGFORRESPONSE then
+    print("Waiting for reponse")
+    print(itemData.choiceStatus)
+
+    if worldData.scenarioSelected == 1 then
+      if selectItem(1, 2) == 1 then
+        display_dialogue(dialogue.scenarioOneGood)
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
+      elseif selectItem(1, 2) == 2 then
+        display_dialogue(dialogue.scenarioOneNeutral)
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
+      elseif selectItem(1, 2) == 3 then
+        display_dialogue(dialogue.scenarioOneBad)
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+      end
+  elseif worldData.scenarioSelected == 2 then
+      if selectItem(1, 2) == 1 then
+        display_dialogue(dialogue.scenarioTwoGood)
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+      elseif selectItem(1, 2) == 2 then
+        display_dialogue(dialogue.scenarioTwoNeutral)
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+      elseif selectItem(1, 2) == 3 then
+        display_dialogue(dialogue.scenarioTwoBad)
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
+      end
     end
   end
 
@@ -182,33 +219,6 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
       print_dialogue_text("Which item will you give to the knight? (Select 1-9)")
       print_dialogue_continue_caret()
 end
-
---[[
-  if worldData.state == enums.game_states.SCENARIO1 then
-    print("Scenario1 started")
-    local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
-
-    -- overlay to dim the play grid while dialogue is happening
-    love.graphics.setColor(0, 0, 0, 0.75)
-    love.graphics.rectangle('fill', 0, 64 * 3, 1024, 768)
-
-    -- render aventurer, cat, and text
-    if worldData.current_dialogue then
-
-      love.graphics.setColor(1, 1, 1, 1)
-      love.graphics.draw(assets.images[worldData.current_dialogue.avatarUpper], 0, 0) --avatar image knight
-      love.graphics.draw(assets.images[worldData.current_dialogue.avatarLower], 704, 576) --avatar image cat
-      love.graphics.setColor(1, 1, 1, 1)
---      love.graphics.setColor(0, 0.8, 0, 1)
-      --print_name(worldData.current_dialogue.name)
-      local substr = string.sub(worldData.current_dialogue.text, 1, worldData.current_dialogue.len_to_print)
-      print_dialogue_text(substr)
-      print_dialogue_continue_caret()
-    end
-
-    love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
-  end
-]]--
 
 
 

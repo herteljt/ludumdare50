@@ -76,7 +76,8 @@ worldData = {
     game_mode_after_dialogue_done = enums.game_states.MAIN_ACTION,
   },
   cursor_blink_time = 0,
-  numberGrid = 0 -- 0 off, 1 display
+  numberGrid = 0, -- 0 off, 1 display
+  scenarioSelected = nil,
 }
 
 itemData = {
