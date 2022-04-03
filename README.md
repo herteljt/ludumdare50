@@ -8,7 +8,7 @@ Programming
   @joshh
 
 Art
-@graphite)
+@graphite
 @sarahhhhhh
 
 Writing
