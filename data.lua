@@ -46,7 +46,7 @@ assets = {
 
 enums = {
   game_states = {
-    MAIN_ACTION = 0,
+    INTRODUCTION= 0,
     DIALOGUE = 11,
     SCENARIO1 = 1,
     SCENARIO2 = 2,
