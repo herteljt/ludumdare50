@@ -13,7 +13,7 @@ function love.load()
   -- world data
   worldData.grid.width = 16
   worldData.grid.height = 9
-  worldData.grid.border = 0
+  worldData.grid.border = 0 
 
 
 -- background
