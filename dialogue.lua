@@ -63,11 +63,47 @@ dialogue.introduction = {
   },
 }
 
+dialogue.scenarioTransitionFromGood = {
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catNeutral",
+    text = "TRANSITION FROM GOOD - To my utter amazement, that actually worked quite well. Perhaps you should stay in the bag."
+  },
+  {
+    avatarUpper = "catHappy",
+    avatarLower = "knightNeutral",
+    text = "...."
+  },
+  {
+    avatarUpper = "knightNeutral",
+    avatarLower = "catNeutral",
+    text = "Onto our next ADVENTURE!"
+  },
+}
+
+dialogue.scenarioTransitionFromNeutral = {
+  {
+    avatarUpper = "knightAnnoyed",
+    avatarLower = "catNeutral",
+    text = "TRANSITION FROM NEUTRAL - Blast it, cat! We almost lost it there. Now come out of that bag!"
+  },
+  {
+    avatarUpper = "catAnnoyed",
+    avatarLower = "knightNeutral",
+    text = "...."
+  },
+  {
+    avatarUpper = "knightNeutral",
+    avatarLower = "catNeutral",
+    text = "Fine, stay in there for all I care. ADVENTURE AWAITS!!"
+  },
+}
+
 dialogue.scenarioOneIntro = {
   {
     avatarUpper = "narrator",
     avatarLower = "knightNeutral",
-    text = "You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
+    text = "SCENARIO 1 - INTRO You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
   },
   {
     avatarUpper = "knightScared",
@@ -95,7 +131,7 @@ dialogue.scenarioOneGood = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "You bat the item out of the bag into your human's waiting hands. As the bag closes you hear a lot of strange ululations and braying sounds."
+    text = "SCENARIO 1 - GOOD You bat the item out of the bag into your human's waiting hands. As the bag closes you hear a lot of strange ululations and braying sounds."
   },
   {
     avatarUpper = "narrator",
@@ -122,7 +158,7 @@ dialogue.scenarioOneNeutral = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "Daintily you pick up the item with your mouth and place it in your human's hand, only biting him very lightly in the process, barely any blood is spilt."
+    text = "SCENARIO 1 -NEUTRAL Daintily you pick up the item with your mouth and place it in your human's hand, only biting him very lightly in the process, barely any blood is spilt."
   },
   {
     avatarUpper = "narrator",
@@ -139,7 +175,7 @@ dialogue.scenarioOneBad = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "You nuzzle your human's hand and he pulls it away in shock. Must keep them guessing, yes? As he pulls his hand from the bag he takes an item with him and holds it up to the creatures. Immediately all the screaming stops."
+    text = "SCENARIO 1 - BAD You nuzzle your human's hand and he pulls it away in shock. Must keep them guessing, yes? As he pulls his hand from the bag he takes an item with him and holds it up to the creatures. Immediately all the screaming stops."
   },
   {
     avatarUpper = "knightScared",
@@ -184,7 +220,7 @@ dialogue.scenarioTwoIntro = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "Your human has been out of danger for much longer than usual. How boring. You yawn and stretch and then dig your claws viciously, playfully into the side of the bag. You purr with satisfaction as the tips dig into fleshy bits of the giant that carries you."
+    text = "SCENARIO 2 - INTRO Your human has been out of danger for much longer than usual. How boring. You yawn and stretch and then dig your claws viciously, playfully into the side of the bag. You purr with satisfaction as the tips dig into fleshy bits of the giant that carries you."
   },
   {
     avatarUpper = "knightFail",
@@ -227,7 +263,7 @@ dialogue.scenarioTwoGood = {
   {
     avatarUpper = "narrator",
     avatarLower = "catHappy",
-    text = "You carefully select the perfect item and eat it, then curl up to take a nap. The large one looks down at you, panic in his eyes."
+    text = "SCENARIO 2 - GOOD You carefully select the perfect item and eat it, then curl up to take a nap. The large one looks down at you, panic in his eyes."
   },
   {
     avatarUpper = "knightScared",
@@ -259,7 +295,7 @@ dialogue.scenarioTwoNeutral = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "On a whim you sniff one of the items and take a small nibble. You don't know what that thing is but it tastes awful, so you spit it out of the bag."
+    text = "SCENARIO 2 - NEUTRAL On a whim you sniff one of the items and take a small nibble. You don't know what that thing is but it tastes awful, so you spit it out of the bag."
   },
   {
     avatarUpper = "catScared",
@@ -336,7 +372,7 @@ dialogue.scenarioTwoBad = {
   {
     avatarUpper = "narrator",
     avatarLower = "catNeutral",
-    text = "The trail has been long and the bag is dark. That's the only way I can explain why you decided to eat that thing. It gets lodged in your throat and you begin to try and hack it up."
+    text = "SCENARIO 2 - BAD The trail has been long and the bag is dark. That's the only way I can explain why you decided to eat that thing. It gets lodged in your throat and you begin to try and hack it up."
   },
   {
     avatarUpper = "catScared",

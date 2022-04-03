@@ -102,8 +102,8 @@ function love.load()
 
 
 -- Scenario Debugging
-worldData.scenarioSelected = 2
-worldData.state = enums.game_states.SCENARIO2
+worldData.scenarioSelected = 1
+worldData.state = enums.game_states.SCENARIO1
 
 end
 
@@ -123,6 +123,15 @@ function love.update(dt)
     print("Scenario2 State")
     display_dialogue(dialogue.scenarioTwoIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
+  end
+
+  if worldData.state == enums.game_states.TRANSITIONFROMGOOD then
+    print("Transition from Good")
+    print(worldData.scenarioSelected)
+    display_dialogue(dialogue.scenarioTransitionFromGood)
+    worldData.current_dialogue.game_mode_after_dialogue_done = worldData.scenarioSelected + 1
+    print("worldData value after")
+    print(worldData.scenarioSelected)
   end
 
 --[[
@@ -150,11 +159,11 @@ function love.update(dt)
     if worldData.scenarioSelected == 1 then
       if selectItem(3, 4) == 1 then
         display_dialogue(dialogue.scenarioOneGood)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
         itemData.itemThree.itemShow = 0
       elseif selectItem(3, 4) == 2 then
         display_dialogue(dialogue.scenarioOneNeutral)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
         itemData.itemFour.itemShow = 0
       elseif selectItem(3, 4) == 3 then
         display_dialogue(dialogue.scenarioOneBad)
@@ -163,12 +172,12 @@ function love.update(dt)
   elseif worldData.scenarioSelected == 2 then
       if selectItem(1, 2) == 1 then
         display_dialogue(dialogue.scenarioTwoGood)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
         itemData.itemOne.itemShow = 0
         print_dialogue_continue_caret()
       elseif selectItem(1, 2) == 2 then
         display_dialogue(dialogue.scenarioTwoNeutral)
-        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+        worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
         itemData.itemTwo.itemShow = 0
         print_dialogue_continue_caret()
       elseif selectItem(1, 2) == 3 then
@@ -305,7 +314,7 @@ end
       -- overlay to dim the play grid while dialogue is happening
       love.graphics.setColor(0, 0, 0, 0.5)
       love.graphics.rectangle('fill', 0, 64 * 3, 1024, 768)
-      
+
 
       love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
     end
