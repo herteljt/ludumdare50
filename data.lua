@@ -78,6 +78,7 @@ worldData = {
   cursor_blink_time = 0,
   numberGrid = 0, -- 0 off, 1 display
   scenarioSelected = nil,
+  grayScreen = nil,
 }
 
 itemData = {
@@ -88,13 +89,78 @@ itemData = {
   choiceStatus = 0, -- 1 correct, 2 neutral, 0 reset, 3 incorrect
 
   itemOne = {
-    itemShow = nil,
+    image = nil,
+    itemShow = 1,
     itemHide = nil,
     choiceGood = nil,
     choiceNeutral = nil,
   },
   itemTwo = {
-    itemShow = nil,
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemThree = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemFour = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemFive = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemSix = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemSeven = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemEight = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemNine = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemTen = {
+    image = nil,
+    itemShow = 1,
+    itemHide = nil,
+    choiceGood = nil,
+    choiceNeutral = nil,
+  },
+  itemEleven = {
+    image = nil,
+    itemShow = 1,
     itemHide = nil,
     choiceGood = nil,
     choiceNeutral = nil,

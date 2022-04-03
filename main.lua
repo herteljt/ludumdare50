@@ -18,15 +18,14 @@ function love.load()
 
 -- background
   assets.images.background = love.graphics.newImage("graphics/background.png")
+  assets.images.backgroundNumbers = love.graphics.newImage("graphics/numberGrid.png")
 
+--narrator
   assets.images.narrator = love.graphics.newImage("graphics/narrator.png")
+--fight
   assets.images.fight = love.graphics.newImage("graphics/fight.png")
 
   assets.images.characterBlank = love.graphics.newImage("graphics/characterBlank.png")
-
---end credits
-  assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
-
 
 -- knight
   assets.images.knightNeutral = love.graphics.newImage("graphics/knightNeutral.png")
@@ -41,6 +40,23 @@ function love.load()
   assets.images.catScared = love.graphics.newImage("graphics/catScared.png")
   assets.images.catAnnoyed = love.graphics.newImage("graphics/catAnnoyed.png")
 
+--items
+-- cat
+  itemData.itemOne.image = love.graphics.newImage("graphics/itemFish.png")
+  itemData.itemTwo.image= love.graphics.newImage("graphics/itemShark.png")
+  itemData.itemThree.image = love.graphics.newImage("graphics/itemPudding.png")
+  itemData.itemFour.image = love.graphics.newImage("graphics/itemPotato.png")
+  itemData.itemFive.image = love.graphics.newImage("graphics/itemPotato.png")
+  itemData.itemSix.image = love.graphics.newImage("graphics/itemKey.png")
+  itemData.itemSeven.image = love.graphics.newImage("graphics/itemPerfume.png")
+  itemData.itemEight.image = love.graphics.newImage("graphics/itemBottle.png")
+  itemData.itemNine.image = love.graphics.newImage("graphics/itemRope.png")
+  itemData.itemTen.image = love.graphics.newImage("graphics/itemFish.png")
+  itemData.itemEleven.image = love.graphics.newImage("graphics/itemKey.png")
+
+
+  --end credits
+    assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
 
 
 
@@ -79,14 +95,16 @@ function love.load()
 
   print("Game loaded! Let's go.")
 
---[[
-  worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
-  display_dialogue(dialogue.introduction)
-]]--
+-- Comment out to test scenarios
+--worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+--display_dialogue(dialogue.introduction)
 
--- Remove after testing scenarios
+
+
+-- Scenario Debugging
 worldData.scenarioSelected = 2
 worldData.state = enums.game_states.SCENARIO2
+
 end
 
 
@@ -130,13 +148,15 @@ function love.update(dt)
     print(itemData.choiceStatus)
 
     if worldData.scenarioSelected == 1 then
-      if selectItem(1, 2) == 1 then
+      if selectItem(3, 4) == 1 then
         display_dialogue(dialogue.scenarioOneGood)
         worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
-      elseif selectItem(1, 2) == 2 then
+        itemData.itemThree.itemShow = 0
+      elseif selectItem(3, 4) == 2 then
         display_dialogue(dialogue.scenarioOneNeutral)
         worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO2
-      elseif selectItem(1, 2) == 3 then
+        itemData.itemFour.itemShow = 0
+      elseif selectItem(3, 4) == 3 then
         display_dialogue(dialogue.scenarioOneBad)
         worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
       end
@@ -144,9 +164,13 @@ function love.update(dt)
       if selectItem(1, 2) == 1 then
         display_dialogue(dialogue.scenarioTwoGood)
         worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+        itemData.itemOne.itemShow = 0
+        print_dialogue_continue_caret()
       elseif selectItem(1, 2) == 2 then
         display_dialogue(dialogue.scenarioTwoNeutral)
         worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+        itemData.itemTwo.itemShow = 0
+        print_dialogue_continue_caret()
       elseif selectItem(1, 2) == 3 then
         display_dialogue(dialogue.scenarioTwoBad)
         worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
@@ -205,6 +229,44 @@ end
 -- runs continuously; this is the only place draw calls will work
 function love.draw()
   love.graphics.draw(assets.images.background, 0, 0)
+  love.graphics.draw(assets.images.backgroundNumbers, 0, 0)
+
+-- Use a for loop here if time
+--items
+if itemData.itemOne.itemShow == 1 then
+  love.graphics.draw(itemData.itemOne.image, 128, 192)
+end
+if itemData.itemTwo.itemShow == 1 then
+  love.graphics.draw(itemData.itemTwo.image, 320, 192)
+end
+if itemData.itemThree.itemShow == 1 then
+  love.graphics.draw(itemData.itemThree.image, 512, 192)
+end
+if itemData.itemFour.itemShow == 1 then
+  love.graphics.draw(itemData.itemFour.image, 704, 192)
+end
+if itemData.itemFive.itemShow == 1 then
+  love.graphics.draw(itemData.itemFive.image, 128, 384)
+end
+if itemData.itemSix.itemShow == 1 then
+  love.graphics.draw(itemData.itemSix.image, 320, 384)
+end
+if itemData.itemSeven.itemShow == 1 then
+  love.graphics.draw(itemData.itemSeven.image, 512, 384)
+end
+if itemData.itemEight.itemShow == 1 then
+  love.graphics.draw(itemData.itemEight.image, 704, 384)
+end
+if itemData.itemNine.itemShow == 1 then
+  love.graphics.draw(itemData.itemNine.image, 128, 576)
+end
+if itemData.itemTen.itemShow == 1 then
+  love.graphics.draw(itemData.itemTen.image, 320, 576)
+end
+if itemData.itemEleven.itemShow == 1 then
+  love.graphics.draw(itemData.itemEleven.image, 512, 576)
+end
+
 
   local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
   love.graphics.setColor(0.1, 0.1, 0.1, 1)
@@ -239,9 +301,11 @@ end
         print_dialogue_text(substr)
         print_dialogue_continue_caret()
       end
+
       -- overlay to dim the play grid while dialogue is happening
-      love.graphics.setColor(0, 0, 0, 0.75)
+      love.graphics.setColor(0, 0, 0, 0.5)
       love.graphics.rectangle('fill', 0, 64 * 3, 1024, 768)
+      
 
       love.graphics.setColor(prev_r, prev_g, prev_b, prev_a)
     end
@@ -296,6 +360,10 @@ end
 function love.keypressed( key )
   if key == "d" or key =="right" then
     text = "Right  -- pressed!"
+    if itemData.itemOne.itemShow == 1 then
+      itemData.itemOne.itemShow = 0
+    else itemData.itemOne.itemShow = 1
+    end
   end
   if key == "a" or key =="left" then
     text = "Left  -- pressed!"
