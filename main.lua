@@ -18,8 +18,9 @@ function love.load()
 
 -- background
   assets.images.background = love.graphics.newImage("graphics/background.png")
-  assets.images.backgroundNumbers = love.graphics.newImage("graphics/numberGrid.png")
-  assets.images.backgroundOverlay = love.graphics.newImage("graphics/overlay.png")
+  assets.images.backgroundNumbers = love.graphics.newImage("graphics/backgroundNumberGrid.png")
+  assets.images.backgroundOverlay = love.graphics.newImage("graphics/backgroundOverlay.png")
+  assets.images.backgroundSplashScreen = love.graphics.newImage("graphics/backgroundSplashScreen.png")
 
 --narrator
   assets.images.narrator = love.graphics.newImage("graphics/narrator.png")
@@ -72,28 +73,38 @@ function love.load()
   assets.fonts.header = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 56, "none")
   assets.fonts.dialogue = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 22, "none")
 
---[[
+
   -- sounds
-  assets.musicA.intro = love.audio.newSource("/sounds/twinklyspace.mp3", "static")
-  assets.musicB.intro = love.audio.newSource("/sounds/chill.mp3", "static")
-  assets.musicA.encounter = love.audio.newSource("/sounds/action.mp3", "static")
-  assets.musicA.win = love.audio.newSource("/sounds/win.mp3", "static")
-  assets.musicA.incomingmessage = love.audio.newSource("/sounds/incomingmessage.mp3", "static")
+  assets.musicBackground.file = love.audio.newSource("/sounds/twinklyspace.mp3", "static")
+  assets.musicScenarioOne.file = love.audio.newSource("/sounds/action.mp3", "static")
+  assets.musicScenarioTwo.file = love.audio.newSource("/sounds/chill.mp3", "static")
+  assets.musicScenarioThree.file = love.audio.newSource("/sounds/win.mp3", "static")
+
+  assets.musicBackground.state = assets.musicBackground.file
+  assets.musicBackground.volume = .15
+  assets.musicBackground.state:setLooping(true)
+  assets.musicBackground.state:setVolume(assets.musicBackground.volume)
+--  assets.musicBackground.state:play()
+
+  assets.musicScenarioOne.state = assets.musicScenarioOne.file
+  assets.musicScenarioOne.volume = 0
+  assets.musicScenarioOne.state:setLooping(true)
+  assets.musicScenarioOne.state:setVolume(assets.musicScenarioOne.volume)
+--  assets.musicScenarioOne.state:play()
+
+  assets.musicScenarioTwo.state = assets.musicScenarioTwo.file
+  assets.musicScenarioTwo.volume = 0
+  assets.musicScenarioTwo.state:setLooping(true)
+  assets.musicScenarioTwo.state:setVolume(assets.musicScenarioTwo.volume)
+--  assets.musicScenarioTwo.state:play()
+
+  assets.musicScenarioThree.state = assets.musicScenarioThree.file
+  assets.musicScenarioThree.volume = 0
+  assets.musicScenarioThree.state:setLooping(true)
+  assets.musicScenarioThree.state:setVolume(assets.musicScenarioThree.volume)
+--  assets.musicScenarioThree.state:play()
 
 
-  assets.musicA.state = assets.musicA.intro
-  assets.musicA.state:setLooping(true)
-  assets.musicA.state:setVolume(.15)
-  assets.musicA.state:play()
-
-  assets.musicB.state = assets.musicB.intro
-  assets.musicB.state:setLooping(true)
-  assets.musicB.state:setVolume(.15)
-  assets.musicB.state:play()
-]]--
-
-  -- Build world
-  --buildLevel(0,141,numberObstacles)
 
   print("Game loaded! Let's go.")
 
@@ -102,10 +113,13 @@ function love.load()
 -- Scenario Debugging
 --worldData.scenarioSelected = 3
 -- worldData.state = enums.game_states.INTRODUCTION
-
+--[[
 worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
 display_dialogue(dialogue.introduction)
 worldData.scenarioSelected = 1
+]]--
+
+worldData.state = enums.game_states.SPLASHSCREEN
 end
 
 
@@ -120,6 +134,12 @@ if worldData.state == enums.game_states.INTRODUCTION then
 end
 ]]--
 
+-- Update sound
+  assets.musicBackground.state:setVolume(assets.musicBackground.volume)
+  assets.musicScenarioOne.state:setVolume(assets.musicScenarioOne.volume)
+  assets.musicScenarioTwo.state:setVolume(assets.musicScenarioTwo.volume)
+  assets.musicScenarioThree.state:setVolume(assets.musicScenarioThree.volume)
+
 
 
 if worldData.state == enums.game_states.WAITINGFORRESPONSE then
@@ -133,13 +153,16 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
             worldData.scenarioSelected = 2 --prepare for next scenario
             itemData.itemTwo.itemShow = 0
+            assets.musicScenarioOne.volume = 0
           elseif selectItem(2, 1, 0, 3, 4, 5, 6, 7, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioOneNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
             worldData.scenarioSelected = 2 --prepare for next scenario
             itemData.itemOne.itemShow = 0
+            assets.musicScenarioOne.volume = 0
           elseif selectItem(2, 1, 0, 3, 4, 5, 6, 7, 8, 9) == 3 then
             display_dialogue(dialogue.scenarioOneBad)
+            assets.musicScenarioOne.volume = 0
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       elseif worldData.scenarioSelected == 2 then
@@ -149,13 +172,16 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
             worldData.scenarioSelected = 3 --prepare for next scenario
             itemData.itemFour.itemShow = 0
+            assets.musicScenarioTwo.volume = 0
           elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
             worldData.scenarioSelected = 3 --prepare for next scenario
             itemData.itemSeven.itemShow = 0
+            assets.musicScenarioTwo.volume = 0
           elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 3 then
             display_dialogue(dialogue.scenarioTwoBad)
+            assets.musicScenarioTwo.volume = 0
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       elseif worldData.scenarioSelected == 3 then
@@ -165,12 +191,15 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
             worldData.scenarioSelected = 4 --prepare for next scenario
             itemData.itemZero.itemShow = 0
+            assets.musicScenarioThree.volume = 0
           elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
             worldData.scenarioSelected = 4 --prepare for next scenario
             itemData.itemFive.itemShow = 0
+            assets.musicScenarioThree.volume = 0
           elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 3 then
+            assets.musicScenarioThree.volume = 0
             display_dialogue(dialogue.scenarioTwoBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
@@ -200,6 +229,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   -- trigger scenarios
   if worldData.state == enums.game_states.SCENARIO1 then
     print("Scenario1 State")
+    assets.musicScenarioOne.volume = .05
     display_dialogue(dialogue.scenarioOneIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
@@ -207,12 +237,14 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
 
   if worldData.state == enums.game_states.SCENARIO2 then
     print("Scenario2 State")
+    assets.musicScenarioTwo.volume = .05
     display_dialogue(dialogue.scenarioTwoIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
   if worldData.state == enums.game_states.SCENARIO3 then
     print("Scenario3 State")
+    assets.musicScenarioThree.volume = .05
     display_dialogue(dialogue.scenarioThreeIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
@@ -243,7 +275,8 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
 
   -- reset program
   if love.keyboard.isDown('r') then
-    love.event.quit("restart")
+      resetGame()
+    --love.event.quit("restart")
   end
 
   if not love.keyboard.isDown('space') then
@@ -268,6 +301,14 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   end
 
   if love.keyboard.isDown('space')
+    and worldData.state == enums.game_states.SPLASHSCREEN
+    then
+    worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+    display_dialogue(dialogue.introduction)
+    worldData.scenarioSelected = 1
+  end
+
+  if love.keyboard.isDown('space')
     and worldData.state == enums.game_states.DIALOGUE
     and not keyState.space.pressed then
     keyState.space.pressed = true
@@ -279,45 +320,49 @@ end
 -- LOVE.DRAW --
 -- runs continuously; this is the only place draw calls will work
 function love.draw()
+
+if worldData.state == enums.game_states.SPLASHSCREEN then
+  love.graphics.draw(assets.images.backgroundSplashScreen, 0, 0)
+else
   love.graphics.draw(assets.images.background, 0, 0)
   love.graphics.draw(assets.images.backgroundNumbers, 0, 0)
 
--- Use a for loop here if time
---items
-if itemData.itemZero.itemShow == 1 then
-  love.graphics.draw(itemData.itemZero.image, 128, 192)
+  -- Use a for loop here if time
+  --items
+  if itemData.itemZero.itemShow == 1 then
+    love.graphics.draw(itemData.itemZero.image, 128, 192)
+  end
+  if itemData.itemOne.itemShow == 1 then
+    love.graphics.draw(itemData.itemOne.image, 320, 192)
+  end
+  if itemData.itemTwo.itemShow == 1 then
+    love.graphics.draw(itemData.itemTwo.image, 512, 192)
+  end
+  if itemData.itemThree.itemShow == 1 then
+    love.graphics.draw(itemData.itemThree.image, 704, 192)
+  end
+  if itemData.itemFour.itemShow == 1 then
+    love.graphics.draw(itemData.itemFour.image, 128, 384)
+  end
+  if itemData.itemFive.itemShow == 1 then
+    love.graphics.draw(itemData.itemFive.image, 320, 384)
+  end
+  if itemData.itemSix.itemShow == 1 then
+    love.graphics.draw(itemData.itemSix.image, 512, 384)
+  end
+  if itemData.itemSeven.itemShow == 1 then
+    love.graphics.draw(itemData.itemSeven.image, 704, 384)
+  end
+  if itemData.itemEight.itemShow == 1 then
+    love.graphics.draw(itemData.itemEight.image, 128, 576)
+  end
+  if itemData.itemNine.itemShow == 1 then
+    love.graphics.draw(itemData.itemNine.image, 320, 576)
+  end
+  if itemData.itemTen.itemShow == 1 then
+    love.graphics.draw(itemData.itemTen.image, 512, 576)
+  end
 end
-if itemData.itemOne.itemShow == 1 then
-  love.graphics.draw(itemData.itemOne.image, 320, 192)
-end
-if itemData.itemTwo.itemShow == 1 then
-  love.graphics.draw(itemData.itemTwo.image, 512, 192)
-end
-if itemData.itemThree.itemShow == 1 then
-  love.graphics.draw(itemData.itemThree.image, 704, 192)
-end
-if itemData.itemFour.itemShow == 1 then
-  love.graphics.draw(itemData.itemFour.image, 128, 384)
-end
-if itemData.itemFive.itemShow == 1 then
-  love.graphics.draw(itemData.itemFive.image, 320, 384)
-end
-if itemData.itemSix.itemShow == 1 then
-  love.graphics.draw(itemData.itemSix.image, 512, 384)
-end
-if itemData.itemSeven.itemShow == 1 then
-  love.graphics.draw(itemData.itemSeven.image, 704, 384)
-end
-if itemData.itemEight.itemShow == 1 then
-  love.graphics.draw(itemData.itemEight.image, 128, 576)
-end
-if itemData.itemNine.itemShow == 1 then
-  love.graphics.draw(itemData.itemNine.image, 320, 576)
-end
-if itemData.itemTen.itemShow == 1 then
-  love.graphics.draw(itemData.itemTen.image, 512, 576)
-end
-
 
   local prev_r, prev_g, prev_b, prev_a = love.graphics.getColor()
   love.graphics.setColor(0.1, 0.1, 0.1, 1)
@@ -414,11 +459,8 @@ end
 function love.keypressed( key )
   if key == "d" or key =="right" then
     text = "Right  -- pressed!"
-    if itemData.itemZero.itemShow == 1 then
-      itemData.itemZero.itemShow = 0
-    else itemData.itemZero.itemShow = 1
-    end
   end
+
   if key == "a" then
     text = "a  -- pressed!"
 
@@ -446,16 +488,15 @@ function love.keypressed( key )
     worldData.state = enums.game_states.SCENARIO3
   end
 
-
---[[
-
-  if key == "w" or key =="up" then
+  if key =="up" then
     text = "Up  -- pressed!"
+--    assets.musicScenarioOne.volume = assets.musicScenarioOne.volume + .05
   end
-  if key == "s" or key =="down" then
+  if key =="down" then
     text = "Down  -- pressed!"
+  --  assets.musicScenarioOne.volume = assets.musicScenarioOne.volume - .05
   end
-]]--
+
 
   if key == "space" then
     text = "Space  -- pressed!"
@@ -638,6 +679,28 @@ function selectItem (good, neutral, bad1, bad2, bad3, bad4, bad5, bad6, bad7, ba
 
 end
 
-function resetItemStatus ()
+function resetGame ()
   itemData.choiceSelected = 100
+
+  itemData.itemZero.itemShow = 1
+  itemData.itemOne.itemShow = 1
+  itemData.itemTwo.itemShow = 1
+  itemData.itemThree.itemShow = 1
+  itemData.itemFour.itemShow = 1
+  itemData.itemFive.itemShow = 1
+  itemData.itemSix.itemShow = 1
+  itemData.itemSeven.itemShow = 1
+  itemData.itemEight.itemShow = 1
+  itemData.itemNine.itemShow = 1
+
+  assets.musicBackground.volume = .15
+  assets.musicScenarioOne.volume = 0
+  assets.musicScenarioTwo.volume = 0
+  assets.musicScenarioThree.volume = 0
+
+
+
+  worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
+  display_dialogue(dialogue.introduction)
+  worldData.scenarioSelected = 1
 end

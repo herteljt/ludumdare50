@@ -21,21 +21,30 @@ assets = {
   player ={
 
   },
-  musicA = {
+  musicBackground = {
     state = nil,
-    intro = nil,
-    level = nil,
-    encounter = nil,
-    win = nil,
-    incomingmessage = nil,
+    file = nil,
+    volume = nil,
   },
-  musicB = {
+  musicScenarioOne = {
     state = nil,
-    intro = nil,
-    level = nil,
-    encounter = nil,
-    win = nil,
-    incomingmessage = nil,
+    file = nil,
+    volume = nil,
+  },
+  musicScenarioTwo = {
+    state = nil,
+    file = nil,
+    volume = nil,
+  },
+  musicScenarioThree = {
+    state = nil,
+    file = nil,
+    volume = nil,
+  },
+  musicScenarioFour = {
+    state = nil,
+    file = nil,
+    volume = nil,
   },
   fonts = {
     regular = nil,
@@ -46,7 +55,7 @@ assets = {
 
 enums = {
   game_states = {
-    INTRODUCTION= 0,
+    SPLASHSCREEN= 0,
     DIALOGUE = 11,
     SCENARIO1 = 1,
     SCENARIO2 = 2,
