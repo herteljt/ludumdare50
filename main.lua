@@ -265,11 +265,12 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   end
 
 
-  -- start
+--[[  -- start
   if love.keyboard.isDown('s') then
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
     display_dialogue(dialogue.introduction)
   end
+]]
 
   -- item selection
   if love.keyboard.isDown('1') then
@@ -529,6 +530,9 @@ end
 function love.keypressed( key )
   if key == "d" or key =="right" then
     text = "Right  -- pressed!"
+    worldData.debug = not worldData.debug
+    text = "Debug state change"
+    print(worldData.debug)
   end
 
   if key == "a" then
@@ -540,19 +544,19 @@ function love.keypressed( key )
 
   end
 
-  if key == "j" then
+  if key == "j" and worldData.debug == true then
     text = "j  -- pressed!"
     worldData.scenarioSelected = 1
     worldData.state = enums.game_states.SCENARIO1
   end
 
-  if key == "k" then
+  if key == "k" and worldData.debug == true then
     text = "k  -- pressed!"
     worldData.scenarioSelected = 2
     worldData.state = enums.game_states.SCENARIO2
   end
 
-  if key == "l" then
+  if key == "l" and worldData.debug == true then
     text = "l  -- pressed!"
     worldData.scenarioSelected = 3
     worldData.state = enums.game_states.SCENARIO3
@@ -614,7 +618,7 @@ function love.keypressed( key )
     itemData.choiceSelected = 0
 
   end
-  if key == "backspace" then
+  if key == "backspace" and worldData.debug == true then
     text = "Backspace  -- pressed!"
     worldData.state = enums.game_states.WIN
   end
@@ -639,10 +643,12 @@ function love.keyreleased( key )
     text = "Up  -- released!"
     keyState.up.pressed = false
   end
+--[[
   if key == "s" or key =="down" then
     text = "Down  -- released!"
     keyState.down.pressed = false
   end
+  ]]
   if key == "space" then
     text = "Space  -- released!"
     keyState.space.pressed = false

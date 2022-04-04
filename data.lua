@@ -66,13 +66,14 @@ enums = {
     WAITINGFORRESPONSE = 9,
     OUTRO = 10,
     DIALOGUE = 11,
-    ENDING = 12,
+    ENDING = nil,
 
   }
 }
 
 worldData = {
   state = enums.game_states.MAIN_ACTION,
+  debug = false,
   scenarioSelected = nil, --keep track of selected scenario
   grid = {
     width = nil,
