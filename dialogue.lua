@@ -4,7 +4,7 @@ dialogue.introduction = {
  {
    avatarUpper = "knightHappy",
    avatarLower = "catNeutral",
-   text = "What a lovely day to walk about picking up random items and then using them in dangerous scenarios!"
+   text = "INTRODUCTION - What a lovely day to walk about picking up random items and then using them in dangerous scenarios!"
  },
  {
    avatarUpper = "knightNeutral",
@@ -110,7 +110,7 @@ dialogue.scenarioOneIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catSleep",
-   text = "You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
+   text = "SCENARIO 1 - You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
  },
  {
    avatarUpper = "knightScared",
@@ -224,7 +224,7 @@ dialogue.scenarioTwoIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catNeutral",
-   text = "Your human has been out of danger for much longer than usual. How boring. You yawn and stretch and then dig your claws viciously, playfully into the side of the bag. You purr with satisfaction as the tips dig into fleshy bits of the giant that carries you."
+   text = "SCENARIO 2 - Your human has been out of danger for much longer than usual. How boring. You yawn and stretch and then dig your claws viciously, playfully into the side of the bag. You purr with satisfaction as the tips dig into fleshy bits of the giant that carries you."
  },
  {
    avatarUpper = "knightFail",
@@ -408,7 +408,7 @@ dialogue.scenarioThreeIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catMrowDisappointed",
-   text = "You are insanely hungry. How dare your human not feed you your second lunch. You start yowling at an insanely high interval, it's even hurting your own ears."
+   text = "SCENARIO 3 - You are insanely hungry. How dare your human not feed you your second lunch. You start yowling at an insanely high interval, it's even hurting your own ears."
  },
  {
    avatarUpper = "knightAnnoyed",
@@ -516,7 +516,7 @@ dialogue.scenarioFourIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catMrowDisappointed",
-   text = "Is it getting hot in this bag, or is it just you?"
+   text = "SCENARIO 4 - Is it getting hot in this bag, or is it just you?"
  },
  {
    avatarUpper = "narrator",
@@ -803,7 +803,7 @@ dialogue.scenarioFiveIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catHairball",
-   text = "There's a horrendous smell that's permeating through the bag. It's even ruining your fur; no matter how much you clean and lick the smell never goes away. What has this hapless giant got you into now?"
+   text = "SCENARIO 5 - There's a horrendous smell that's permeating through the bag. It's even ruining your fur; no matter how much you clean and lick the smell never goes away. What has this hapless giant got you into now?"
  },
  {
    avatarUpper = "knightScared",
@@ -907,7 +907,7 @@ dialogue.scenarioOutro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catHappy",
-   text = "You poke your head out of the bag and see it at last. In the distance but swiftly approaching, it is your home. Your own little bed. Your water dish and kibble. Your collection of rare fake mice on bouncy strings."
+   text = "ENDING - You poke your head out of the bag and see it at last. In the distance but swiftly approaching, it is your home. Your own little bed. Your water dish and kibble. Your collection of rare fake mice on bouncy strings."
  },
  {
    avatarUpper = "knightScared",

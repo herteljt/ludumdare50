@@ -50,13 +50,14 @@ assets = {
     regular = nil,
     header = nil,
     dialogue = nil,
+    credits = nil,
+    ending = nil,
   },
 }
 
 enums = {
   game_states = {
     SPLASHSCREEN= 0,
-    DIALOGUE = 11,
     SCENARIO1 = 1,
     SCENARIO2 = 2,
     SCENARIO3 = 3,
@@ -64,6 +65,8 @@ enums = {
     TRANSITIONFROMNEUTRAL = 6,
     WAITINGFORRESPONSE = 9,
     OUTRO = 10,
+    DIALOGUE = 11,
+    ENDING = 12,
 
   }
 }

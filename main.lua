@@ -21,6 +21,7 @@ function love.load()
   assets.images.backgroundNumbers = love.graphics.newImage("graphics/backgroundNumberGrid.png")
   assets.images.backgroundOverlay = love.graphics.newImage("graphics/backgroundOverlay.png")
   assets.images.backgroundSplashScreen = love.graphics.newImage("graphics/backgroundSplashScreen.png")
+  assets.images.backgroundCredits = love.graphics.newImage("graphics/backgroundCredits.png")
 
 --narrator
   assets.images.narrator = love.graphics.newImage("graphics/narrator.png")
@@ -65,44 +66,45 @@ function love.load()
   itemData.itemTen.image = love.graphics.newImage("graphics/itemKey.png")
 
   --end credits
-    assets.images.endCredits = love.graphics.newImage("graphics/endCredits.png")
+    assets.images.backgroundEnding = love.graphics.newImage("graphics/backgroundEnding.png")
 
 
   -- fonts
   assets.fonts.regular = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 28, "none")
-  assets.fonts.header = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 56, "none")
+  assets.fonts.header = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 24, "none")
   assets.fonts.dialogue = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 22, "none")
+  assets.fonts.ending = love.graphics.newFont("fonts/GermaniaOne-Regular.ttf", 56, "none")
 
 
   -- sounds
-  assets.musicBackground.file = love.audio.newSource("/sounds/twinklyspace.mp3", "static")
-  assets.musicScenarioOne.file = love.audio.newSource("/sounds/action.mp3", "static")
-  assets.musicScenarioTwo.file = love.audio.newSource("/sounds/chill.mp3", "static")
-  assets.musicScenarioThree.file = love.audio.newSource("/sounds/win.mp3", "static")
+  assets.musicBackground.file = love.audio.newSource("/sounds/LDJ_catinthebag_theme.mp3", "static")
+  assets.musicScenarioOne.file = love.audio.newSource("/sounds/LDJ_catinthebag_fanfare.mp3", "static")
+  assets.musicScenarioTwo.file = love.audio.newSource("/sounds/LDJ_catinthebag_fanfare.mp3", "static")
+  assets.musicScenarioThree.file = love.audio.newSource("/sounds/LDJ_catinthebag_fanfare.mp3", "static")
 
   assets.musicBackground.state = assets.musicBackground.file
-  assets.musicBackground.volume = .15
+  assets.musicBackground.volume = .08
   assets.musicBackground.state:setLooping(true)
   assets.musicBackground.state:setVolume(assets.musicBackground.volume)
---  assets.musicBackground.state:play()
+  assets.musicBackground.state:play()
 
   assets.musicScenarioOne.state = assets.musicScenarioOne.file
   assets.musicScenarioOne.volume = 0
   assets.musicScenarioOne.state:setLooping(true)
   assets.musicScenarioOne.state:setVolume(assets.musicScenarioOne.volume)
---  assets.musicScenarioOne.state:play()
+  assets.musicScenarioOne.state:play()
 
   assets.musicScenarioTwo.state = assets.musicScenarioTwo.file
   assets.musicScenarioTwo.volume = 0
   assets.musicScenarioTwo.state:setLooping(true)
   assets.musicScenarioTwo.state:setVolume(assets.musicScenarioTwo.volume)
---  assets.musicScenarioTwo.state:play()
+  --assets.musicScenarioTwo.state:play()
 
   assets.musicScenarioThree.state = assets.musicScenarioThree.file
   assets.musicScenarioThree.volume = 0
   assets.musicScenarioThree.state:setLooping(true)
   assets.musicScenarioThree.state:setVolume(assets.musicScenarioThree.volume)
---  assets.musicScenarioThree.state:play()
+  --assets.musicScenarioThree.state:play()
 
 
 
@@ -145,6 +147,7 @@ end
 if worldData.state == enums.game_states.WAITINGFORRESPONSE then
     --  print("Waiting for reponse")
       --print(itemData.choiceSelected)
+      assets.musicScenarioOne.volume = 0.03
 
       if worldData.scenarioSelected == 1 then
           print("Psst: 2 is good, 1 is neutral")
@@ -161,8 +164,8 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             itemData.itemOne.itemShow = 0
             assets.musicScenarioOne.volume = 0
           elseif selectItem(2, 1, 0, 3, 4, 5, 6, 7, 8, 9) == 3 then
-            display_dialogue(dialogue.scenarioOneBad)
             assets.musicScenarioOne.volume = 0
+            display_dialogue(dialogue.scenarioOneBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       elseif worldData.scenarioSelected == 2 then
@@ -172,16 +175,18 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
             worldData.scenarioSelected = 3 --prepare for next scenario
             itemData.itemFour.itemShow = 0
-            assets.musicScenarioTwo.volume = 0
+            assets.musicScenarioOne.volume = 0
           elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 2 then
+            assets.musicScenarioOne.volume = 0.03
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
             worldData.scenarioSelected = 3 --prepare for next scenario
             itemData.itemSeven.itemShow = 0
-            assets.musicScenarioTwo.volume = 0
+            assets.musicScenarioOne.volume = 0
           elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 3 then
+            assets.musicScenarioOne.volume = 0
             display_dialogue(dialogue.scenarioTwoBad)
-            assets.musicScenarioTwo.volume = 0
+            assets.musicScenarioOne.volume = 0
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       elseif worldData.scenarioSelected == 3 then
@@ -191,15 +196,15 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
             worldData.scenarioSelected = 4 --prepare for next scenario
             itemData.itemZero.itemShow = 0
-            assets.musicScenarioThree.volume = 0
+            assets.musicScenarioOne.volume = 0
           elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 2 then
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
             worldData.scenarioSelected = 4 --prepare for next scenario
             itemData.itemFive.itemShow = 0
-            assets.musicScenarioThree.volume = 0
+            assets.musicScenarioOne.volume = 0
           elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 3 then
-            assets.musicScenarioThree.volume = 0
+            assets.musicScenarioOne.volume = 0
             display_dialogue(dialogue.scenarioTwoBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
@@ -208,6 +213,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
 
 
   if worldData.state == enums.game_states.TRANSITIONFROMGOOD then
+    assets.musicScenarioOne.volume = 0
     print("Transition from Good")
     print(worldData.scenarioSelected)
     display_dialogue(dialogue.transitionFromGoodOne)
@@ -217,6 +223,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   end
 
   if worldData.state == enums.game_states.TRANSITIONFROMNEUTRAL then
+    assets.musicScenarioOne.volume = 0
     print("Transition from Neutral")
     print(worldData.scenarioSelected)
     display_dialogue(dialogue.transitionFromNeutralOne)
@@ -229,7 +236,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   -- trigger scenarios
   if worldData.state == enums.game_states.SCENARIO1 then
     print("Scenario1 State")
-    assets.musicScenarioOne.volume = .05
+    assets.musicScenarioOne.volume = 0
     display_dialogue(dialogue.scenarioOneIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
@@ -237,20 +244,22 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
 
   if worldData.state == enums.game_states.SCENARIO2 then
     print("Scenario2 State")
-    assets.musicScenarioTwo.volume = .05
+    assets.musicScenarioOne.volume = 0
     display_dialogue(dialogue.scenarioTwoIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
   if worldData.state == enums.game_states.SCENARIO3 then
     print("Scenario3 State")
-    assets.musicScenarioThree.volume = .05
+    assets.musicScenarioOne.volume = 0
     display_dialogue(dialogue.scenarioThreeIntro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WAITINGFORRESPONSE
   end
 
   if worldData.state == enums.game_states.OUTRO then
     print("Scenario Outro")
+    assets.musicScenarioOne.volume = 0
+    enums.game_states.ENDING = false
     display_dialogue(dialogue.scenarioOutro)
     worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
   end
@@ -413,18 +422,79 @@ end
     love.graphics.setColor(0, 0, 1, 0.5)
     love.graphics.rectangle('fill', 0, 0, 1024, 768)
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.draw(assets.images.endCredits, 0, 0)
+    love.graphics.draw(assets.images.backgroundCredits, 0, 0)
+
+    --love.graphics.draw(assets.images.endCredits, 0, 0)
     love.graphics.setColor(0, 0, 0, 1)
-    print_header("Game over!", 300, 50)
-    print_header("Press 'r' to play again", 300, 100)
-    print_header("or 'ESC' to quit.", 300, 150)
+    print_header("Your human has died!", 70, 50)
+    print_header("But don’t worry, I’m sure you will be fine.", 70, 100)
+    print_header("Maybe if you try again you can keep him safe!", 70, 150)
+    print_header("Probably not though.", 70, 200)
+
+    print_header("Cat in the Bag was made by:", 590, 50)
+    print_header("Art:", 590, 100)
+    print_header("--Aaron Uglum (FugitiveInkStudio.com)", 590, 150)
+    print_header("--Sarah White (ordinaryhumanperson.com)", 590, 200)
+    print_header("--Joanna (7) & Caroline (4) ", 590, 250)
+    print_header("Music:", 590, 300)
+    print_header("--Leo Krechmer (leokrechmer.itch.io)", 590, 350)
+    print_header("Programming", 590, 400)
+    print_header("--Josh Hertel (twitter.com/herteljt)", 590, 450)
+    print_header("Story", 590, 500)
+    print_header("--David Schallert (twitter.com/Fromage10x", 590, 550)
+    print_header("                            twitch.tv/fromage10x)", 590, 575)
+    print_header("--Juliette Welch (itch.io/profile/grimpuppet)", 590, 620)
+    print_header("Press Enter", 500, 700)
+
     love.graphics.setColor(1, 1, 1, 1)
-    print_header("Game over!", 302, 50)
-    print_header("Press 'r' to play again", 302, 102)
-    print_header("or 'ESC' to quit.", 302, 152)
-  end
+    print_header("Your human has died!", 70, 52)
+    print_header("But don’t worry, I’m sure you will be fine.", 70, 102)
+    print_header("Maybe if you try again you can keep him safe!", 70, 152)
+    print_header("Probably not though.", 70, 202)
+
+    print_header("Cat in the Bag was made by:", 592, 52)
+    print_header("Art:", 592, 102)
+    print_header("--Aaron Uglum (FugitiveInkStudio.com)", 592, 152)
+    print_header("--Sarah White (ordinaryhumanperson.com)", 592, 202)
+    print_header("--Joanna (7) & Caroline (4) ", 592, 252)
+    print_header("Music:", 592, 302)
+    print_header("--Leo Krechmer (leokrechmer.itch.io)", 592, 352)
+    print_header("Programming", 592, 402)
+    print_header("--Josh Hertel (twitter.com/herteljt)", 592, 452)
+    print_header("Story", 592, 502)
+    print_header("--David Schallert (twitter.com/Fromage10x", 592, 552)
+    print_header("                            twitch.tv/fromage10x)", 592, 577)
+    print_header("--Juliette Welch (itch.io/profile/grimpuppet)", 592, 622)
+    print_header("Press Enter", 502, 702)
 
 end
+
+
+if worldData.state == enums.game_states.WIN and
+enums.game_states.ENDING == true then
+
+      love.graphics.setColor(0, 0, 1, 0.5)
+      love.graphics.rectangle('fill', 0, 0, 1024, 768)
+      love.graphics.setColor(1, 1, 1, 1)
+      love.graphics.draw(assets.images.backgroundEnding, 0, 0)
+      --love.graphics.draw(assets.images.endCredits, 0, 0)
+  --          print_dialogue_text()
+      love.graphics.setColor(0, 0, 0, 1)
+      print_header("Game over! Press 'r' to play again or 'ESC' to quit", 300, 100)
+      print_header("Joanna (7)", 250, 200)
+      print_header("Caroline (4)", 665, 200)
+      love.graphics.setColor(1, 1, 1, 1)
+      print_header("Game over! Press 'r' to play again or 'ESC' to quit", 302, 102)
+      print_header("Joanna (7)", 252, 202)
+      print_header("Caroline (4)", 667, 202)
+
+end
+
+
+
+  end
+
+
 
 
 -- helpers for rendering text to screen at a pixel position
@@ -550,6 +620,7 @@ function love.keypressed( key )
   end
   if key == "return" then
     text = "Enter  -- pressed!"
+    enums.game_states.ENDING = true
   end
   print(text) --Remove comment to debug keypress
 end
@@ -693,12 +764,12 @@ function resetGame ()
   itemData.itemEight.itemShow = 1
   itemData.itemNine.itemShow = 1
 
-  assets.musicBackground.volume = .15
+  assets.musicBackground.volume = .08
   assets.musicScenarioOne.volume = 0
   assets.musicScenarioTwo.volume = 0
   assets.musicScenarioThree.volume = 0
 
-
+  enums.game_states.ENDING = false
 
   worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCENARIO1
   display_dialogue(dialogue.introduction)
