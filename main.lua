@@ -65,7 +65,7 @@ function love.load()
   itemData.itemTen.image = love.graphics.newImage("graphics/itemKey.png")
 
   --end credits
-    assets.images.end_credits = love.graphics.newImage("graphics/end_credits.png")
+    assets.images.endCredits = love.graphics.newImage("graphics/endCredits.png")
 
 
   -- fonts
@@ -118,7 +118,7 @@ worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.SCE
 display_dialogue(dialogue.introduction)
 worldData.scenarioSelected = 1
 ]]--
-
+itemData.itemTen.itemShow = 0 --hide item ten because we are not using it.
 worldData.state = enums.game_states.SPLASHSCREEN
 end
 
@@ -413,15 +413,15 @@ end
     love.graphics.setColor(0, 0, 1, 0.5)
     love.graphics.rectangle('fill', 0, 0, 1024, 768)
     love.graphics.setColor(1, 1, 1, 1)
-    love.graphics.draw(assets.images.end_credits, 0, 0)
+    love.graphics.draw(assets.images.endCredits, 0, 0)
     love.graphics.setColor(0, 0, 0, 1)
-    print_header("You win!", 400, 300)
-    print_header("Press 'r' to play again", 300, 400)
-    print_header("or 'ESC' to quit.", 300, 450)
+    print_header("Game over!", 300, 50)
+    print_header("Press 'r' to play again", 300, 100)
+    print_header("or 'ESC' to quit.", 300, 150)
     love.graphics.setColor(1, 1, 1, 1)
-    print_header("You win!", 402, 302)
-    print_header("Press 'r' to play again", 302, 402)
-    print_header("or 'ESC' to quit.", 302, 452)
+    print_header("Game over!", 302, 50)
+    print_header("Press 'r' to play again", 302, 102)
+    print_header("or 'ESC' to quit.", 302, 152)
   end
 
 end

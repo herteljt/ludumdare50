@@ -110,7 +110,7 @@ dialogue.scenarioOneIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catSleep",
-   text = "SCENARIO 1 - INTRO You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
+   text = "You are curled up in the bag asleep when you are awoken by screaming, both from your human and some sort of...well...you want to say donkey?"
  },
  {
    avatarUpper = "knightScared",
@@ -133,7 +133,7 @@ dialogue.scenarioOneGood = {
  {
    avatarUpper = "narrator",
    avatarLower = "catNeutral",
-   text = "SCENARIO 1 - GOOD You bat the item out of the bag into your human's waiting hands. As the bag closes you hear a lot of strange sounds halfway between braying and snarling."
+   text = "You bat the item out of the bag into your human's waiting hands. As the bag closes you hear a lot of strange sounds halfway between braying and snarling."
  },
  {
    avatarUpper = "narrator",
@@ -161,7 +161,7 @@ dialogue.scenarioOneNeutral = {
  {
    avatarUpper = "narrator",
    avatarLower = "catNeutral",
-   text = "SCENARIO 1 -NEUTRAL Daintily you pick up the item with your mouth and place it in your human's hand, only biting him very lightly in the process, barely any blood is spilt."
+   text = "Daintily you pick up the item with your mouth and place it in your human's hand, only biting him very lightly in the process, barely any blood is spilt."
  },
  {
    avatarUpper = "narrator",
@@ -179,7 +179,7 @@ dialogue.scenarioOneBad = {
  {
    avatarUpper = "narrator",
    avatarLower = "catNeutral",
-   text = "SCENARIO 1 - BAD You nuzzle your human's hand. He pulls it away in shock at the attempt to express affection. Must keep them guessing, yes? As he pulls his hand from the bag he takes an item with him and holds it up to the creatures. Immediately all the screaming stops."
+   text = "You nuzzle your human's hand. He pulls it away in shock at the attempt to express affection. Must keep them guessing, yes? As he pulls his hand from the bag he takes an item with him and holds it up to the creatures. Immediately all the screaming stops."
  },
  {
    avatarUpper = "knightScared",
@@ -224,7 +224,7 @@ dialogue.scenarioTwoIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catNeutral",
-   text = "SCENARIO 2 - INTRO Your human has been out of danger for much longer than usual. How boring. You yawn and stretch and then dig your claws viciously, playfully into the side of the bag. You purr with satisfaction as the tips dig into fleshy bits of the giant that carries you."
+   text = "Your human has been out of danger for much longer than usual. How boring. You yawn and stretch and then dig your claws viciously, playfully into the side of the bag. You purr with satisfaction as the tips dig into fleshy bits of the giant that carries you."
  },
  {
    avatarUpper = "knightFail",
@@ -262,7 +262,7 @@ dialogue.scenarioTwoGood = {
  {
    avatarUpper = "narrator",
    avatarLower = "catHappy",
-   text = "SCENARIO 2 - GOOD You carefully select the perfect item and eat it, then curl up to take a nap. The large one looks down at you, panic in his eyes."
+   text = "You carefully select the perfect item and eat it, then curl up to take a nap. The large one looks down at you, panic in his eyes."
  },
  {
    avatarUpper = "knightScared",
@@ -295,7 +295,7 @@ dialogue.scenarioTwoNeutral  = {
  {
    avatarUpper = "narrator",
    avatarLower = "catHairball",
-   text = "SCENARIO 2 - NEUTRAL On a whim you sniff one of the items and take a small nibble. You don't know what that thing is but it tastes awful, so you spit it out of the bag."
+   text = "On a whim you sniff one of the items and take a small nibble. You don't know what that thing is but it tastes awful, so you spit it out of the bag."
  },
  {
    avatarUpper = "knightScared",
@@ -358,7 +358,7 @@ dialogue.scenarioTwoBad = {
  {
    avatarUpper = "narrator",
    avatarLower = "catHairball",
-   text = "SCENARIO 2 - BAD The trail has been long and the bag is dark. Which is the only way I can explain why you decided to eat that thing. It gets lodged in your throat and you begin to try and hack it up."
+   text = "The trail has been long and the bag is dark. Which is the only way I can explain why you decided to eat that thing. It gets lodged in your throat and you begin to try and hack it up."
  },
  {
    avatarUpper = "knightScared",
@@ -408,7 +408,7 @@ dialogue.scenarioThreeIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catMrowDisappointed",
-   text = "SCENARIO 3 INTRO - You are insanely hungry. How dare your human not feed you your second lunch. You start yowling at an insanely high interval, it's even hurting your own ears."
+   text = "You are insanely hungry. How dare your human not feed you your second lunch. You start yowling at an insanely high interval, it's even hurting your own ears."
  },
  {
    avatarUpper = "knightAnnoyed",
@@ -451,7 +451,7 @@ dialogue.scenarioThreeGood = {
  {
    avatarUpper = "narrator",
    avatarLower = "catMrowDisappointed",
-   text = "You dart back inside the bag as the new item drops in behind you. Your toy doesn't however, and the human starts to journey again. How dare he. He hasn't even fed you."
+   text = "You dart back inside the bag as he starts to keep walking. He leaves without getting your toy back however. How dare he. He hasn't even fed you."
  },
  {
    avatarUpper = "knightAnnoyed",
@@ -516,7 +516,7 @@ dialogue.scenarioFourIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catMrowDisappointed",
-   text = "SCENARIO 4 - INTRO Is it getting hot in this bag, or is it just you?"
+   text = "Is it getting hot in this bag, or is it just you?"
  },
  {
    avatarUpper = "narrator",
@@ -589,7 +589,7 @@ dialogue.scenarioFourGood = {
  {
    avatarUpper = "narrator",
    avatarLower = "catneutral",
-   text = "SCENARIO 4 - GOOD It's too hot to decide things. Instead you lay down to take a nap, knocking Dracula out of the bag as you settle in. The giant grabs him and Dracula grabs back to avoid falling into the lava. They stare at each other, dumbfounded."
+   text = "It's too hot to decide things. Instead you lay down to take a nap, knocking Dracula out of the bag as you settle in. The giant grabs him and Dracula grabs back to avoid falling into the lava. They stare at each other, dumbfounded."
  },
  {
    avatarUpper = "knightAnnoyed",
@@ -647,7 +647,7 @@ dialogue.scenarioFourNeutral = {
  {
    avatarUpper = "knightScared",
    avatarLower = "catScared",
-   text = "SCENARIO 4 - NEUTRAL Demos, hurry!"
+   text = "Demos, hurry!"
  },
  {
    avatarUpper = "narrator",
@@ -725,7 +725,7 @@ dialogue.scenarioFourBad = {
  {
    avatarUpper = "narrator",
    avatarLower = "catneutral",
-   text = "SCENARIO 4 - BAD There comes a time in every cat's life when they completely lose control and must zip from place to place, freezing with eyes wide only to zip around again. Well, several times really. A day."
+   text = "There comes a time in every cat's life when they completely lose control and must zip from place to place, freezing with eyes wide only to zip around again. Well, several times really. A day."
  },
  {
    avatarUpper = "narrator",
@@ -803,7 +803,7 @@ dialogue.scenarioFiveIntro = {
  {
    avatarUpper = "narrator",
    avatarLower = "catHairball",
-   text = "SCENARIO 5 - INTRO There's a horrendous smell that's permeating through the bag. It's even ruining your fur; no matter how much you clean and lick the smell never goes away. What has this hapless giant got you into now?"
+   text = "There's a horrendous smell that's permeating through the bag. It's even ruining your fur; no matter how much you clean and lick the smell never goes away. What has this hapless giant got you into now?"
  },
  {
    avatarUpper = "knightScared",
@@ -836,7 +836,7 @@ dialogue.scenarioFiveGood = {
  {
    avatarUpper = "narrator",
    avatarLower = "catAnnoyed",
-   text = "SCENARIO FIVE - GOOD The big shark in the corner that's been eyeing you up this entire adventure suddenly seems like the best option. Maybe. The smell is frying your brain. You force it out of the bag and you hear a splash. The big metal oaf groans and falls forward. You resign yourself to a death by smelly drowning, but you don't feel the water get in the bag!"
+   text = "The big shark in the corner that's been eyeing you up this entire adventure suddenly seems like the best option. Maybe. The smell is frying your brain. You force it out of the bag and you hear a splash. The big metal oaf groans and falls forward. You resign yourself to a death by smelly drowning, but you don't feel the water get in the bag!"
  },
  {
    avatarUpper = "narrator",
@@ -869,7 +869,7 @@ dialogue.scenarioFiveNeutral = {
  {
    avatarUpper = "narrator",
    avatarLower = "catAnnoyed",
-   text = "SCENARIO 5 -NEUTRAL Something hits your foot, and you bat at it. It flies out of the bag, and you only notice at the last second that it's your lunch!"
+   text = "Something hits your foot, and you bat at it. It flies out of the bag, and you only notice at the last second that it's your lunch!"
  },
  {
    avatarUpper = "knightScared",
@@ -897,7 +897,7 @@ dialogue.scenarioFiveBad = {
  {
    avatarUpper = "narrator",
    avatarLower = "catAnnoyed",
-   text = "SCENARIO 5 - BAD You can barely see or think for yourself due to the smell. You hit the first thing you touch out of the bag, but it doesn't seem to affect the human at all. You poke your head out of the bag and hit his head. He doesn't even groan. Oh no, it's every cat for themselves now. You run out of the bag and the swamp, and spend the next day trying to get the smell out of your fur."
+   text = "You can barely see or think for yourself due to the smell. You hit the first thing you touch out of the bag, but it doesn't seem to affect the human at all. You poke your head out of the bag and hit his head. He doesn't even groan. Oh no, it's every cat for themselves now. You run out of the bag and the swamp, and spend the next day trying to get the smell out of your fur."
  },
 }
 
