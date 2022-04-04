@@ -40,9 +40,13 @@ function love.load()
   assets.images.catHappy = love.graphics.newImage("graphics/catHappy.png")
   assets.images.catScared = love.graphics.newImage("graphics/catScared.png")
   assets.images.catAnnoyed = love.graphics.newImage("graphics/catAnnoyed.png")
-  assets.images.catMew = love.graphics.newImage("graphics/catNeutralMew.png")
-  assets.images.catMrow = love.graphics.newImage("graphics/catMrowDisappointed.png")
+  assets.images.catNeutralMew = love.graphics.newImage("graphics/catNeutralMew.png")
+  assets.images.catNeutral = love.graphics.newImage("graphics/catNeutral.png")
+  assets.images.catMrowDisappointed = love.graphics.newImage("graphics/catMrowDisappointed.png")
   assets.images.catHiss = love.graphics.newImage("graphics/catHiss.png")
+  assets.images.catSleep = love.graphics.newImage("graphics/catSleep.png")
+  assets.images.catHairball = love.graphics.newImage("graphics/catHairball.png")
+
 
 
 --items
@@ -177,7 +181,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   if worldData.state == enums.game_states.TRANSITIONFROMGOOD then
     print("Transition from Good")
     print(worldData.scenarioSelected)
-    display_dialogue(dialogue.scenarioTransitionFromGood)
+    display_dialogue(dialogue.transitionFromGoodOne)
     worldData.current_dialogue.game_mode_after_dialogue_done = worldData.scenarioSelected
     print("worldData value after")
     print(worldData.scenarioSelected)
@@ -186,7 +190,7 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
   if worldData.state == enums.game_states.TRANSITIONFROMNEUTRAL then
     print("Transition from Neutral")
     print(worldData.scenarioSelected)
-    display_dialogue(dialogue.scenarioTransitionFromNeutral)
+    display_dialogue(dialogue.transitionFromNeutralOne)
     worldData.current_dialogue.game_mode_after_dialogue_done = worldData.scenarioSelected
     print("worldData value after")
     print(worldData.scenarioSelected)
