@@ -467,7 +467,7 @@ dialogue.scenarioThreeBad = {
    text = "You just want to look for food. There better be some in here. You think you saw human take a bite of something earlier, maybe that's edible? You find it, take a bite, spit it out. That's revolting. How dare he even keep it in the bag with you. When he next reaches in, you give it to him to take it out with the rest of the trash."
  },
  {
-   avatarUpper = "knightConfused",
+   avatarUpper = "knightAnnoyed",
    avatarLower = "catNeutral",
    text = "Ah yes, horrible wizards, I have this -- thing. It's poisonous! And deadly. Beware!"
  },
