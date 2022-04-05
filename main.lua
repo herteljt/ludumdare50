@@ -198,14 +198,14 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
             itemData.itemZero.itemShow = 0
             assets.musicScenarioOne.volume = 0
           elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 2 then
-            display_dialogue(dialogue.scenarioTwoNeutral)
+            display_dialogue(dialogue.scenarioThreeNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.OUTRO
             worldData.scenarioSelected = 4 --prepare for next scenario
             itemData.itemFive.itemShow = 0
             assets.musicScenarioOne.volume = 0
           elseif selectItem(0, 5, 1, 2, 3, 4, 6, 7, 8, 9) == 3 then
             assets.musicScenarioOne.volume = 0
-            display_dialogue(dialogue.scenarioTwoBad)
+            display_dialogue(dialogue.scenarioThreeBad)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.WIN
           end
       end
