@@ -170,20 +170,20 @@ if worldData.state == enums.game_states.WAITINGFORRESPONSE then
           end
       elseif worldData.scenarioSelected == 2 then
           print("Psst: 4 is good, 7 is neutral")
-          if selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 1 then
+          if selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9, 0) == 1 then
             display_dialogue(dialogue.scenarioTwoGood)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMGOOD
             worldData.scenarioSelected = 3 --prepare for next scenario
             itemData.itemFour.itemShow = 0
             assets.musicScenarioOne.volume = 0
-          elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 2 then
+          elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9, 0) == 2 then
             assets.musicScenarioOne.volume = 0.03
             display_dialogue(dialogue.scenarioTwoNeutral)
             worldData.current_dialogue.game_mode_after_dialogue_done = enums.game_states.TRANSITIONFROMNEUTRAL
             worldData.scenarioSelected = 3 --prepare for next scenario
             itemData.itemSeven.itemShow = 0
             assets.musicScenarioOne.volume = 0
-          elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9) == 3 then
+          elseif selectItem(4, 7, 1, 2, 3, 5, 6, 8, 9, 0) == 3 then
             assets.musicScenarioOne.volume = 0
             display_dialogue(dialogue.scenarioTwoBad)
             assets.musicScenarioOne.volume = 0
