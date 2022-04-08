@@ -73,7 +73,7 @@ dialogue.transitionFromGoodThree = {
  {
    avatarUpper = "narrator",
    avatarLower = "catNeutral",
-   text = "But you wouldn't know about that, you just lie in a bag collecting new and shiny items. Just keep going, go on! Anyway what's this next bit say? ‘The narrator kept complaining as you walked away, his voice fading in the distance' Oh, nice. Who wrote this thing anyway?"
+   text = "But you wouldn't know about that, you just lie in a bag collecting new and shiny items. Just keep going, go on! Anyway what's this next bit say? 'The narrator kept complaining as you walked away, his voice fading in the distance' Oh, nice. Who wrote this thing anyway?"
  },
 }
 
@@ -912,7 +912,7 @@ dialogue.scenarioOutro = {
  {
    avatarUpper = "knightScared",
    avatarLower = "catNeutralMew",
-   text = "Wait, what? Really? We have arrived at home, and I am still in one piece? I've not been hit by a wrecking ball, or swallowed by some horrific slime monster alongside some mediocre pun like ‘Go to gel'?"
+   text = "Wait, what? Really? We have arrived at home, and I am still in one piece? I've not been hit by a wrecking ball, or swallowed by some horrific slime monster alongside some mediocre pun like 'Go to gel'?"
  },
  {
    avatarUpper = "narrator",
